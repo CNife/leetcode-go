@@ -17,7 +17,6 @@ func TestFindRepeatedDnaSequences(t *testing.T) {
 		if got := FindRepeatedDnaSequences(tt.src); !reflect.DeepEqual(mapper(got), mapper(tt.want)) {
 			t.Errorf("TestFindRepeatedDnaSequences(%v) = %v, want %v", tt.src, got, tt.want)
 		}
-
 	}
 }
 

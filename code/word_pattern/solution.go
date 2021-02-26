@@ -16,7 +16,7 @@ func WordPattern(pattern, s string) bool {
 		index, word := pattern[i]-'a', words[i]
 		foundWord := wordTable[index]
 		foundIndex, exists := wordMap[word]
-		if !exists && len(foundWord) <= 0 {
+		if !exists && len(foundWord) < 1 {
 			wordTable[index] = word
 			wordMap[word] = index
 		} else if foundWord != word || foundIndex != index {

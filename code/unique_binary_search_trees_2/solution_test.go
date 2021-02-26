@@ -12,19 +12,19 @@ func TestGenerateTrees(t *testing.T) {
 		n    int
 		want []*TreeNode
 	}{
-		//{
-		//	n: 2,
-		//	want: []*TreeNode{
-		//		NewTree(1, -1, 2),
-		//		NewTree(2, 1),
-		//	},
-		//},
-		//{
-		//	n: 1,
-		//	want: []*TreeNode{
-		//		NewTree(1),
-		//	},
-		//},
+		{
+			n: 2,
+			want: []*TreeNode{
+				NewTree(1, -1, 2),
+				NewTree(2, 1),
+			},
+		},
+		{
+			n: 1,
+			want: []*TreeNode{
+				NewTree(1),
+			},
+		},
 		{
 			n: 3,
 			want: []*TreeNode{

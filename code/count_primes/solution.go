@@ -14,7 +14,7 @@ func CountPrimes(n int) int {
 	m := int(math.Floor(math.Sqrt(float64(n))))
 	for i := 2; i <= m; i++ {
 		if nums[i] {
-			for j := i * i; j < n; j = j + i {
+			for j := i * i; j < n; j += i {
 				nums[j] = false
 			}
 		}

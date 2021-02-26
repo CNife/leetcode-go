@@ -26,8 +26,6 @@ func TestRotate(t *testing.T) {
 
 func cloneSlice(slice []int) []int {
 	result := make([]int, len(slice))
-	for i, num := range slice {
-		result[i] = num
-	}
+	copy(result, slice)
 	return result
 }

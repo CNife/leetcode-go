@@ -1,8 +1,9 @@
 package array_partition_1
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestArrayPairSum(t *testing.T) {

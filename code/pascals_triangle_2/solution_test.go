@@ -1,8 +1,9 @@
 package pascals_triangle_2
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 var pascalsTriangle = [][]int{

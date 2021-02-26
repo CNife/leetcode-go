@@ -13,11 +13,11 @@ func MinimumEffortPath(heights [][]int) int {
 	for i := 0; i < n; i++ {
 		for j := 0; j < m-1; j++ {
 			left, right := heights[i][j], heights[i][j+1]
-			leftId := i*m + j
-			rightId := leftId + 1
+			leftID := i*m + j
+			rightID := leftID + 1
 			heap.Push(&edges, edge{
-				from:   leftId,
-				to:     rightId,
+				from:   leftID,
+				to:     rightID,
 				weight: diff(left, right),
 			})
 		}
@@ -25,22 +25,22 @@ func MinimumEffortPath(heights [][]int) int {
 	for j := 0; j < m; j++ {
 		for i := 0; i < n-1; i++ {
 			up, down := heights[i][j], heights[i+1][j]
-			upId := i*m + j
-			downId := upId + m
+			upID := i*m + j
+			downID := upID + m
 			heap.Push(&edges, edge{
-				from:   upId,
-				to:     downId,
+				from:   upID,
+				to:     downID,
 				weight: diff(up, down),
 			})
 		}
 	}
 
 	d := newDisjointSet(m * n)
-	targetId := m*n - 1
+	targetID := m*n - 1
 	for len(edges) > 0 {
 		edge := heap.Pop(&edges).(edge)
 		d.union(edge.from, edge.to)
-		if d.find(0) == d.find(targetId) {
+		if d.find(0) == d.find(targetID) {
 			return edge.weight
 		}
 	}

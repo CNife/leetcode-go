@@ -1,8 +1,9 @@
 package reshape_the_matrix
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMatrixReshape(t *testing.T) {

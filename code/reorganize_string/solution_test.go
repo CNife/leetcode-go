@@ -3,6 +3,7 @@ package reorganize_string
 import "testing"
 
 func TestReorganizeString(t *testing.T) {
+	//goland:noinspection SpellCheckingInspection
 	tests := []struct {
 		src, want string
 	}{

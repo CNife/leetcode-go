@@ -9,11 +9,12 @@ func WiggleMaxLength(nums []int) int {
 			down = up + 1
 		}
 	}
-	if len(nums) == 0 {
+	switch {
+	case len(nums) == 0:
 		return 0
-	} else if up > down {
+	case up > down:
 		return up
-	} else {
+	default:
 		return down
 	}
 }

@@ -17,11 +17,12 @@ func OrangesRotting(grid [][]int) int {
 		runs++
 	}
 
-	if hasFreshOranges(grid) {
+	switch {
+	case hasFreshOranges(grid):
 		return -1
-	} else if runs < 0 {
+	case runs < 0:
 		return 0
-	} else {
+	default:
 		return runs
 	}
 }

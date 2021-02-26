@@ -12,7 +12,7 @@ func area(a, b, c, d int) int {
 
 func overlapLength(a, b, c, d int) int {
 	if a > c {
-		a, b, c, d = c, d, a, b
+		b, c, d = d, a, b
 	}
 	if b <= c {
 		return 0

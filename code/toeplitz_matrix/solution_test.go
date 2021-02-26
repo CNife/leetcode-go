@@ -1,8 +1,9 @@
 package toeplitz_matrix
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestIsToeplitzMatrix(t *testing.T) {

@@ -19,12 +19,12 @@ func CountRangeSum(nums []int, lower, higher int) int {
 
 func insert(nums []int, idx, x int) []int {
 	n := len(nums)
-	if idx < 0 || idx > n {
+	switch {
+	case idx < 0 || idx > n:
 		panic("index out of bound")
-	}
-	if idx == n {
+	case idx == n:
 		return append(nums, x)
-	} else {
+	default:
 		nums = append(nums[:idx+1], nums[idx:]...)
 		nums[idx] = x
 		return nums

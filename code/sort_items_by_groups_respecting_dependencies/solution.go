@@ -4,7 +4,7 @@ func SortItems(n int, m int, group []int, beforeItems [][]int) []int {
 	var (
 		groupItems  = make([][]int, m+n)
 		groupEdges  = make([][]int, m+n)
-		groupIdList = makeIndices(m + n)
+		groupIDList = makeIndices(m + n)
 		itemEdges   = make([][]int, n)
 	)
 
@@ -35,7 +35,7 @@ func SortItems(n int, m int, group []int, beforeItems [][]int) []int {
 		}
 	}
 
-	outsideSort := toSort(groupDegree, groupEdges, groupIdList)
+	outsideSort := toSort(groupDegree, groupEdges, groupIDList)
 	if len(outsideSort) < 1 {
 		return nil
 	}

@@ -1,8 +1,9 @@
 package grumpy_bookstore_owner
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMaxSatisfied(t *testing.T) {

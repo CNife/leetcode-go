@@ -9,11 +9,12 @@ func FairCandySwap(a, b []int) []int {
 	wantDiff := (sum(a) - sum(b)) / 2
 	for i, j := 0, 0; i < len(a) && j < len(b); {
 		diff := a[i] - b[j]
-		if diff == wantDiff {
+		switch {
+		case diff == wantDiff:
 			return []int{a[i], b[j]}
-		} else if diff < wantDiff {
+		case diff < wantDiff:
 			i++
-		} else {
+		default:
 			j++
 		}
 	}

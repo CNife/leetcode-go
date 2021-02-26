@@ -23,7 +23,6 @@ func KClosest(points [][]int, k int) [][]int {
 
 type pointHeap struct {
 	points [][]int
-	//distances []uint64
 }
 
 func (ph *pointHeap) Len() int {

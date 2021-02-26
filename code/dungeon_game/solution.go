@@ -10,19 +10,20 @@ func CalculateMinimumHP(dungeon [][]int) int {
 	var dfs func(int, int) int
 	dfs = func(i, j int) int {
 		if i == m-1 && j == n-1 {
-			return max(1-dungeon[i][j], 1)
+			return maxOf1(1 - dungeon[i][j])
 		}
 		if memo[i][j] > 0 {
 			return memo[i][j]
 		}
 
 		var result int
-		if i == m-1 {
-			result = max(dfs(i, j+1)-dungeon[i][j], 1)
-		} else if j == n-1 {
-			result = max(dfs(i+1, j)-dungeon[i][j], 1)
-		} else {
-			result = max(min(dfs(i+1, j), dfs(i, j+1))-dungeon[i][j], 1)
+		switch {
+		case i == m-1:
+			result = maxOf1(dfs(i, j+1) - dungeon[i][j])
+		case j == n-1:
+			result = maxOf1(dfs(i+1, j) - dungeon[i][j])
+		default:
+			result = maxOf1(min(dfs(i+1, j), dfs(i, j+1)) - dungeon[i][j])
 		}
 		memo[i][j] = result
 		return result
@@ -30,11 +31,11 @@ func CalculateMinimumHP(dungeon [][]int) int {
 	return dfs(0, 0)
 }
 
-func max(lhs, rhs int) int {
-	if lhs < rhs {
-		return rhs
+func maxOf1(num int) int {
+	if num < 1 {
+		return 1
 	}
-	return lhs
+	return num
 }
 
 func min(lhs, rhs int) int {

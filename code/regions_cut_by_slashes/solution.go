@@ -10,7 +10,6 @@ func RegionsBySlashes(grid []string) int {
 
 	for i, line := range grid {
 		for j := 0; j < len(line); j++ {
-
 			base := 4 * (n*i + j)
 
 			switch line[j] {

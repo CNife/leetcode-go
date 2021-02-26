@@ -1,9 +1,10 @@
 package accounts_merge
 
 import (
-	"reflect"
 	"sort"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestAccountsMerge(t *testing.T) {
@@ -25,17 +26,14 @@ func TestAccountsMerge(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := AccountsMerge(tt.accounts)
-		sortStringSlices(got)
-		sortStringSlices(tt.want)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("AccountsMerge(%v) = %v, want %v",
-				tt.accounts, got, tt.want)
-		}
+		assert.Equal(t,
+			sortStringSlices(tt.want),
+			sortStringSlices(AccountsMerge(tt.accounts)),
+		)
 	}
 }
 
-func sortStringSlices(ss [][]string) {
+func sortStringSlices(ss [][]string) [][]string {
 	sort.Slice(ss, func(i, j int) bool {
 		if len(ss[i]) != len(ss[j]) {
 			return len(ss[i]) < len(ss[j])
@@ -47,4 +45,5 @@ func sortStringSlices(ss [][]string) {
 		}
 		return false
 	})
+	return ss
 }

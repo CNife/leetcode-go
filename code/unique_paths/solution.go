@@ -2,11 +2,12 @@ package unique_paths
 
 func UniquePaths(m, n int) int {
 	a, b := m-1, n-1
-	if a+b <= uint64FactorialBound {
+	switch {
+	case a+b <= uint64FactorialBound:
 		return fastPath(a, b)
-	} else if a < b {
+	case a < b:
 		return slowPath(a, b)
-	} else {
+	default:
 		return slowPath(b, a)
 	}
 }

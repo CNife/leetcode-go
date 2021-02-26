@@ -1,10 +1,8 @@
 package sort_list
 
-import (
-	. "github.com/CNife/leetcode/go/types"
-)
+import "github.com/CNife/leetcode/go/types"
 
-func SortList(head *ListNode) *ListNode {
+func SortList(head *types.ListNode) *types.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
@@ -12,7 +10,7 @@ func SortList(head *ListNode) *ListNode {
 	return merge(SortList(head), SortList(rhs))
 }
 
-func split(head *ListNode) *ListNode {
+func split(head *types.ListNode) *types.ListNode {
 	ptr := head.Next
 	for ptr != nil && ptr.Next != nil {
 		head, ptr = head.Next, ptr.Next.Next
@@ -22,9 +20,9 @@ func split(head *ListNode) *ListNode {
 	return rhs
 }
 
-var fakeHead = &ListNode{Val: -1}
+var fakeHead = &types.ListNode{Val: -1}
 
-func merge(lhs, rhs *ListNode) *ListNode {
+func merge(lhs, rhs *types.ListNode) *types.ListNode {
 	ptr := fakeHead
 	for lhs != nil && rhs != nil {
 		if lhs.Val < rhs.Val {

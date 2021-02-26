@@ -40,8 +40,7 @@ func distributeWords(words []string, maxWidth int) [][]string {
 }
 
 func singleWord(word string, maxWidth int) string {
-	width := len(word)
-	if width < maxWidth {
+	if width := len(word); width < maxWidth {
 		var buf bytes.Buffer
 		buf.Grow(maxWidth)
 		buf.WriteString(word)

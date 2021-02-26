@@ -1,7 +1,10 @@
 package flipping_an_image
 
-import "testing"
-import "github.com/stretchr/testify/assert"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestFlipAndInvertImage(t *testing.T) {
 	tests := []struct {

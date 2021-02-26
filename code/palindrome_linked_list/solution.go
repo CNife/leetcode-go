@@ -1,8 +1,8 @@
 package palindrome_linked_list
 
-import . "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode/go/types"
 
-func IsPalindrome(head *ListNode) bool {
+func IsPalindrome(head *types.ListNode) bool {
 	var values []int
 	for node := head; node != nil; node = node.Next {
 		values = append(values, node.Val)

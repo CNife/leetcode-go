@@ -56,11 +56,8 @@ func (q *queue) popLeft() int {
 	return x
 }
 
-func (q *queue) popRight() int {
-	n := len(*q) - 1
-	x := (*q)[n]
-	*q = (*q)[:n]
-	return x
+func (q *queue) popRight() {
+	*q = (*q)[:len(*q)-1]
 }
 
 func (q *queue) pushRight(x int) {

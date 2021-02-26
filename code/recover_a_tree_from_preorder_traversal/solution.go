@@ -4,10 +4,10 @@ import (
 	"strconv"
 	"strings"
 
-	. "github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode/go/types"
 )
 
-func RecoverFromPreorder(s string) *TreeNode {
+func RecoverFromPreorder(s string) *types.TreeNode {
 	nodes := parse(s)
 	return buildTree(nodes)
 }
@@ -40,14 +40,14 @@ func parse(s string) []node {
 	return result
 }
 
-func buildTree(nodes []node) *TreeNode {
+func buildTree(nodes []node) *types.TreeNode {
 	switch len(nodes) {
 	case 0:
 		return nil
 	case 1:
-		return &TreeNode{Val: nodes[0].val}
+		return &types.TreeNode{Val: nodes[0].val}
 	default:
-		root := &TreeNode{Val: nodes[0].val}
+		root := &types.TreeNode{Val: nodes[0].val}
 		i := 2
 		for ; i < len(nodes) && nodes[i].level > nodes[0].level+1; i++ {
 		}

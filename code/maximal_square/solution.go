@@ -1,7 +1,7 @@
 package maximal_square
 
 func MaximalSquare(matrix [][]byte) int {
-	if len(matrix) <= 0 || len(matrix[0]) <= 0 {
+	if len(matrix) < 1 || len(matrix[0]) < 1 {
 		return 0
 	}
 	m, n := len(matrix), len(matrix[0])

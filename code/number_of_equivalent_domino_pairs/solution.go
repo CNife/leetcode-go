@@ -3,8 +3,7 @@ package number_of_equivalent_domino_pairs
 import "sort"
 
 func NumEquivDominoPairs(dominoes [][]int) int {
-	n := len(dominoes)
-	if n < 2 {
+	if len(dominoes) < 2 {
 		return 0
 	}
 

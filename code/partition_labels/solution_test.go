@@ -6,6 +6,7 @@ import (
 )
 
 func TestPartitionLabels(t *testing.T) {
+	//goland:noinspection SpellCheckingInspection
 	tests := []struct {
 		src  string
 		want []int

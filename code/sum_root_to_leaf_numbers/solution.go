@@ -1,16 +1,16 @@
 package sum_root_to_leaf_numbers
 
-import . "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode/go/types"
 
-func SumNumbers(root *TreeNode) int {
+func SumNumbers(root *types.TreeNode) int {
 	if root == nil {
 		return 0
 	}
 
 	num, result := 0, 0
 
-	var dfs func(node *TreeNode)
-	dfs = func(node *TreeNode) {
+	var dfs func(node *types.TreeNode)
+	dfs = func(node *types.TreeNode) {
 		num = num*10 + node.Val
 		if node.Left == nil && node.Right == nil {
 			result += num

@@ -35,9 +35,8 @@ func FindRotateSteps(ring, key string) int {
 func abs(i int) int {
 	if i < 0 {
 		return -i
-	} else {
-		return i
 	}
+	return i
 }
 
 func min(nums ...int) int {

@@ -1,8 +1,9 @@
 package populating_next_right_pointers_in_each_node
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestConnect(t *testing.T) {
@@ -37,8 +38,5 @@ func TestConnect(t *testing.T) {
 	want.Left.Right.Next = want.Right.Left
 	want.Right.Left.Next = want.Right.Right
 
-	got := Connect(root)
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("Connect(%v) = %v, want %v", root, got, want)
-	}
+	assert.Equal(t, want, Connect(root))
 }

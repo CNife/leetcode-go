@@ -1,0 +1,56 @@
+linters:
+  enable:
+    - depguard
+    - dogsled
+    - dupl
+    - durationcheck
+    - errorlint
+    - exhaustive
+    - exportloopref
+    - forbidigo
+    - goconst
+    - gocritic
+    - gocyclo
+    - godox
+    - goerr113
+    - gofmt
+    - goheader
+    - goimports
+    - golint
+    - gomodguard
+    - goprintffuncname
+    - ifshort
+    - interfacer
+    - lll
+    - makezero
+    - maligned
+    - misspell
+    - nakedret
+    - nestif
+    - noctx
+    - nolintlint
+    - prealloc
+    - predeclared
+    - rowserrcheck
+    - sqlclosecheck
+    - thelper
+    - tparallel
+    - unconvert
+    - unparam
+    - whitespace
+    - wrapcheck
+
+issues:
+  exclude-rules:
+    - text: "don't use an underscore in package name"
+      linters:
+        - golint
+    - text: "if block ends with a return statement, so drop this else and outdent its block"
+      linters:
+        - golint
+    - text: "`if` block ends with a `return` statement, so drop this `else` and outdent its block"
+      linters:
+        - golint
+    - source: "//noinspection"
+      linters:
+        - gocritic

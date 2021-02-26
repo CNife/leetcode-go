@@ -1,13 +1,13 @@
 package count_complete_tree_nodes
 
-import . "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode/go/types"
 
-func CountNodes(root *TreeNode) int {
+func CountNodes(root *types.TreeNode) int {
 	if root == nil {
 		return 0
 	}
 
-	queue := []*TreeNode{root}
+	queue := []*types.TreeNode{root}
 	count := 0
 	for {
 		if queue[0].Left == nil {

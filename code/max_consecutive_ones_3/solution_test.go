@@ -1,8 +1,9 @@
 package max_consecutive_ones_3
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestLongestOnes(t *testing.T) {

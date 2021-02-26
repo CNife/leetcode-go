@@ -12,15 +12,15 @@ func SwimInWater(grid [][]int) int {
 	for i, row := range grid {
 		for j := 0; j < n-1; j++ {
 			left, right := row[j], row[j+1]
-			leftId := i*n + j
-			heap.Push(&eh, edge{leftId, leftId + 1, max(left, right)})
+			leftID := i*n + j
+			heap.Push(&eh, edge{leftID, leftID + 1, max(left, right)})
 		}
 	}
 	for j := 0; j < n; j++ {
 		for i := 0; i < n-1; i++ {
 			up, down := grid[i][j], grid[i+1][j]
-			upId := i*n + j
-			heap.Push(&eh, edge{upId, upId + n, max(up, down)})
+			upID := i*n + j
+			heap.Push(&eh, edge{upID, upID + n, max(up, down)})
 		}
 	}
 

@@ -11,7 +11,6 @@ func SearchRange(nums []int, target int) []int {
 			return nums[i] > target
 		})
 		return []int{left, right - 1}
-	} else {
-		return []int{-1, -1}
 	}
+	return []int{-1, -1}
 }

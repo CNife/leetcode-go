@@ -13,11 +13,12 @@ func SearchMatrix(matrix [][]int, target int) bool {
 	i, j := 0, n-1
 	for i >= 0 && i < m && j >= 0 && j < n {
 		value := matrix[i][j]
-		if value == target {
+		switch {
+		case value == target:
 			return true
-		} else if value > target {
+		case value > target:
 			j--
-		} else {
+		default:
 			i++
 		}
 	}

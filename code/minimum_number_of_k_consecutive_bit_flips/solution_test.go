@@ -1,8 +1,9 @@
 package minimum_number_of_k_consecutive_bit_flips
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMinKBitFlips(t *testing.T) {

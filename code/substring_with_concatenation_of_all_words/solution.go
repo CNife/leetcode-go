@@ -1,7 +1,7 @@
 package substring_with_concatenation_of_all_words
 
 func FindSubstring(s string, words []string) []int {
-	if len(words) <= 0 {
+	if len(words) < 1 {
 		return nil
 	}
 	wordLen := len(words[0])

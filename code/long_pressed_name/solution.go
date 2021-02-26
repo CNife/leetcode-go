@@ -4,13 +4,14 @@ func IsLongPressedName(name, typed string) bool {
 	var prev byte
 	i, j := 0, 0
 	for i < len(name) && j < len(typed) {
-		if name[i] == typed[j] {
+		switch {
+		case name[i] == typed[j]:
 			prev = name[i]
 			i++
 			j++
-		} else if prev != 0 && typed[j] == prev {
+		case prev != 0 && typed[j] == prev:
 			j++
-		} else {
+		default:
 			return false
 		}
 	}

@@ -4,11 +4,12 @@ func SearchInsert(nums []int, target int) int {
 	lo, hi := 0, len(nums)
 	for lo < hi {
 		mid := lo + (hi-lo)/2
-		if nums[mid] == target {
+		switch {
+		case nums[mid] == target:
 			return mid
-		} else if nums[mid] < target {
+		case nums[mid] < target:
 			lo = mid + 1
-		} else {
+		default:
 			hi = mid
 		}
 	}

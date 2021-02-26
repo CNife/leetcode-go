@@ -9,11 +9,12 @@ func mostCommonWord(paragraph string, banned []string) string {
 	var builder strings.Builder
 	for i := 0; i < len(paragraph); i++ {
 		ch := paragraph[i]
-		if ch >= 'a' && ch <= 'z' {
+		switch {
+		case ch >= 'a' && ch <= 'z':
 			builder.WriteByte(ch)
-		} else if ch >= 'A' && ch <= 'Z' {
+		case ch >= 'A' && ch <= 'Z':
 			builder.WriteByte(ch + 'a' - 'A')
-		} else if builder.Len() > 0 {
+		case builder.Len() > 0:
 			words[builder.String()]++
 			builder.Reset()
 		}

@@ -24,7 +24,7 @@ func NewTree(values ...int) *TreeNode {
 		queue = queue[1:]
 
 		leftValue := values[i]
-		i += 1
+		i++
 		if leftValue >= 0 {
 			node.Left = &TreeNode{Val: leftValue}
 			queue = append(queue, node.Left)
@@ -32,7 +32,7 @@ func NewTree(values ...int) *TreeNode {
 
 		if i < len(values) {
 			rightValue := values[i]
-			i += 1
+			i++
 			if rightValue >= 0 {
 				node.Right = &TreeNode{Val: rightValue}
 				queue = append(queue, node.Right)

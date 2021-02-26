@@ -8,11 +8,12 @@ func Intersection(arr1, arr2 []int) []int {
 	var result []int
 	for i, j := 0, 0; i < len(arr1) && j < len(arr2); {
 		lhs, rhs := arr1[i], arr2[j]
-		if lhs < rhs {
+		switch {
+		case lhs < rhs:
 			i++
-		} else if lhs > rhs {
+		case lhs > rhs:
 			j++
-		} else {
+		default:
 			if len(result) == 0 || result[len(result)-1] != lhs {
 				result = append(result, lhs)
 			}

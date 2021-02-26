@@ -1,13 +1,13 @@
 package binary_tree_zigzag_level_order_traversal
 
-import . "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode/go/types"
 
-func ZigzagLevelOrder(root *TreeNode) [][]int {
+func ZigzagLevelOrder(root *types.TreeNode) [][]int {
 	if root == nil {
 		return nil
 	}
 
-	queue := []*TreeNode{root}
+	queue := []*types.TreeNode{root}
 	var result [][]int
 
 	for flag, size := true, 1; size > 0; flag, size = !flag, len(queue) {

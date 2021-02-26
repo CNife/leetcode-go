@@ -5,13 +5,14 @@ func findContinuousSequence(target int) [][]int {
 	sum := 0
 	var result [][]int
 	for i <= target/2 {
-		if sum < target {
+		switch {
+		case sum < target:
 			sum += j
 			j++
-		} else if sum > target {
+		case sum > target:
 			sum -= i
 			i++
-		} else {
+		default:
 			seq := make([]int, j-i)
 			for k := i; k < j; k++ {
 				seq[k-i] = k

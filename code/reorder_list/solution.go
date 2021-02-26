@@ -1,14 +1,14 @@
 package reorder_list
 
-import . "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode/go/types"
 
-func ReorderList(head *ListNode) {
+func ReorderList(head *types.ListNode) {
 	if head != nil {
 		insert(head, reverse(split(head)))
 	}
 }
 
-func split(head *ListNode) *ListNode {
+func split(head *types.ListNode) *types.ListNode {
 	fast, slow := head, head
 	for fast != nil {
 		fast = fast.Next
@@ -22,8 +22,8 @@ func split(head *ListNode) *ListNode {
 	return rightHead
 }
 
-func reverse(head *ListNode) *ListNode {
-	var prev *ListNode = nil
+func reverse(head *types.ListNode) *types.ListNode {
+	var prev *types.ListNode = nil
 	curr := head
 	for curr != nil {
 		next := curr.Next
@@ -34,7 +34,7 @@ func reverse(head *ListNode) *ListNode {
 	return prev
 }
 
-func insert(lhs, rhs *ListNode) {
+func insert(lhs, rhs *types.ListNode) {
 	for rhs != nil {
 		lhsNext, rhsNext := lhs.Next, rhs.Next
 		lhs.Next, rhs.Next = rhs, lhsNext

@@ -3,12 +3,12 @@ package insertion_sort_list
 import (
 	"math"
 
-	. "github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode/go/types"
 )
 
-func InsertionSortList(head *ListNode) *ListNode {
-	dummyHead := &ListNode{Val: math.MinInt32}
-	sort := func(node *ListNode) {
+func InsertionSortList(head *types.ListNode) *types.ListNode {
+	dummyHead := &types.ListNode{Val: math.MinInt32}
+	sort := func(node *types.ListNode) {
 		prev := dummyHead
 		for prev.Next != nil {
 			if node.Val < prev.Next.Val {

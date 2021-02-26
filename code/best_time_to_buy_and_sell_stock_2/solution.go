@@ -1,7 +1,7 @@
 package best_time_to_buy_and_sell_stock_2
 
 func MaxProfit(prices []int) int {
-	if len(prices) <= 0 {
+	if len(prices) < 1 {
 		return 0
 	}
 

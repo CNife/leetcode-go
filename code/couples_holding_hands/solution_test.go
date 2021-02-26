@@ -1,8 +1,9 @@
 package couples_holding_hands
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMinSwapsCouples(t *testing.T) {

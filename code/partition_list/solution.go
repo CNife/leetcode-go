@@ -1,13 +1,13 @@
 package partition_list
 
-import . "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode/go/types"
 
-func Partition(head *ListNode, x int) *ListNode {
+func Partition(head *types.ListNode, x int) *types.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
 
-	var small, big ListNode
+	var small, big types.ListNode
 	smallPtr, bigPtr := &small, &big
 	for head != nil {
 		if head.Val < x {

@@ -1,8 +1,8 @@
 package swap_nodes_in_pairs
 
-import . "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode/go/types"
 
-func SwapPairs(head *ListNode) *ListNode {
+func SwapPairs(head *types.ListNode) *types.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}

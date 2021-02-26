@@ -1,8 +1,9 @@
 package kth_largest_element_in_a_stream
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestKthLargest(t *testing.T) {

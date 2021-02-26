@@ -1,8 +1,9 @@
 package longest_continuous_subarray_with_absolute_diff_less_than_or_equal_to_limit
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestLongestSubarray(t *testing.T) {

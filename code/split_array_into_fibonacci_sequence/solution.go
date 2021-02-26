@@ -9,7 +9,7 @@ func SplitIntoFibonacci(s string) []int {
 }
 
 func backtrack(s string, result *[]int) bool {
-	if len(s) <= 0 && len(*result) >= 3 {
+	if len(s) < 1 && len(*result) >= 3 {
 		return true
 	}
 	for i := 0; i < len(s); i++ {

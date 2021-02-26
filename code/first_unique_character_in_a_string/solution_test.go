@@ -3,6 +3,7 @@ package first_unique_character_in_a_string
 import "testing"
 
 func TestFirstUnique(t *testing.T) {
+	//goland:noinspection SpellCheckingInspection
 	tests := []struct {
 		s    string
 		want int

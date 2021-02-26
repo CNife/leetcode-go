@@ -1,7 +1,5 @@
 package similar_string_groups
 
-import "fmt"
-
 func NumSimilarGroups(strs []string) int {
 	d := newDisjointSet(len(strs))
 	counter := len(strs)
@@ -16,7 +14,6 @@ func NumSimilarGroups(strs []string) int {
 		}
 	}
 
-	fmt.Println(d)
 	return counter
 }
 

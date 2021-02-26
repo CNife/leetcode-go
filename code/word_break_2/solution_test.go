@@ -29,9 +29,14 @@ func TestWordBreak(t *testing.T) {
 			want:  nil,
 		},
 		{
-			s:     "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-			words: []string{"a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"},
-			want:  nil,
+			s: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+				"aaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			words: []string{
+				"a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa",
+				"aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa",
+			},
+			want: nil,
 		},
 	}
 	for _, tt := range tests {

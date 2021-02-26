@@ -1,7 +1,7 @@
 package score_after_flipping_matrix
 
 func MatrixScore(matrix [][]int) int {
-	if len(matrix) <= 0 || len(matrix[0]) <= 0 {
+	if len(matrix) < 1 || len(matrix[0]) < 1 {
 		return 0
 	}
 

@@ -1,8 +1,9 @@
 package degree_of_an_array
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestFindShortestSubArray(t *testing.T) {

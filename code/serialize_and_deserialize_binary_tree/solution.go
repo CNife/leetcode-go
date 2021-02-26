@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	. "github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode/go/types"
 )
 
 type Codec struct {
@@ -14,9 +14,9 @@ func Constructor() Codec {
 	return Codec{}
 }
 
-func (c *Codec) serialize(tree *TreeNode) string {
+func (c *Codec) serialize(tree *types.TreeNode) string {
 	var result []string
-	queue := []*TreeNode{tree}
+	queue := []*types.TreeNode{tree}
 	for len(queue) > 0 {
 		node := queue[0]
 		queue = queue[1:]
@@ -33,14 +33,14 @@ func (c *Codec) serialize(tree *TreeNode) string {
 	return strings.Join(result, ",")
 }
 
-func (c *Codec) deserialize(data string) *TreeNode {
+func (c *Codec) deserialize(data string) *types.TreeNode {
 	nodes := strings.Split(data, ",")
 	if len(nodes[0]) == 0 {
 		return nil
 	}
 
 	root := parseNode(nodes[0])
-	queue := []*TreeNode{root}
+	queue := []*types.TreeNode{root}
 	for i := 1; i < len(nodes); {
 		node := queue[0]
 		queue = queue[1:]
@@ -62,7 +62,7 @@ func (c *Codec) deserialize(data string) *TreeNode {
 	return root
 }
 
-func parseNode(value string) *TreeNode {
+func parseNode(value string) *types.TreeNode {
 	if len(value) == 0 {
 		return nil
 	} else {
@@ -70,6 +70,6 @@ func parseNode(value string) *TreeNode {
 		if err != nil {
 			return nil
 		}
-		return &TreeNode{Val: nodeVal}
+		return &types.TreeNode{Val: nodeVal}
 	}
 }

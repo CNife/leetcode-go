@@ -1,17 +1,18 @@
 package binary_tree_maximum_path_sum
 
 import (
-	. "github.com/CNife/leetcode/go/types"
 	"math/bits"
+
+	"github.com/CNife/leetcode/go/types"
 )
 
-func MaxPathSum(root *TreeNode) int {
+func MaxPathSum(root *types.TreeNode) int {
 	maxSum := (1 << bits.UintSize) / -2
 	maxGain(root, &maxSum)
 	return maxSum
 }
 
-func maxGain(node *TreeNode, maxSum *int) int {
+func maxGain(node *types.TreeNode, maxSum *int) int {
 	if node == nil {
 		return 0
 	}
