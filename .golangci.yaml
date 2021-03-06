@@ -8,6 +8,7 @@ linters:
     - exhaustive
     - exportloopref
     - forbidigo
+    - gochecknoinits
     - goconst
     - gocritic
     - gocyclo
@@ -20,10 +21,8 @@ linters:
     - gomodguard
     - goprintffuncname
     - ifshort
-    - interfacer
     - lll
     - makezero
-    - maligned
     - misspell
     - nakedret
     - nestif
