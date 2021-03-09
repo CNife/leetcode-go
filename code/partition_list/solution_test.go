@@ -1,28 +1,25 @@
 package partition_list
 
 import (
-	"reflect"
 	"testing"
 
-	. "github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestPartition(t *testing.T) {
 	tests := []struct {
-		head *ListNode
+		head *types.ListNode
 		x    int
-		want *ListNode
+		want *types.ListNode
 	}{
 		{
-			head: NewList(1, 4, 3, 2, 5, 2),
+			head: types.NewList(1, 4, 3, 2, 5, 2),
 			x:    3,
-			want: NewList(1, 2, 2, 4, 3, 5),
+			want: types.NewList(1, 2, 2, 4, 3, 5),
 		},
 	}
 	for _, tt := range tests {
-		if got := Partition(tt.head, tt.x); !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("Partition(%v, %v) = %v, want %v",
-				tt.head, tt.x, got, tt.want)
-		}
+		assert.Equal(t, tt.want, Partition(tt.head, tt.x))
 	}
 }

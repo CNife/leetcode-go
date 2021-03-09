@@ -1,6 +1,6 @@
 package find_all_continuous_sequences
 
-func findContinuousSequence(target int) [][]int {
+func FindContinuousSequence(target int) [][]int {
 	i, j := 1, 1
 	sum := 0
 	var result [][]int

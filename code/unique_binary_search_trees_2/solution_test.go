@@ -1,38 +1,38 @@
 package unique_binary_search_trees_2
 
 import (
-	"reflect"
 	"testing"
 
-	. "github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGenerateTrees(t *testing.T) {
 	tests := []struct {
 		n    int
-		want []*TreeNode
+		want []*types.TreeNode
 	}{
 		{
 			n: 2,
-			want: []*TreeNode{
-				NewTree(1, -1, 2),
-				NewTree(2, 1),
+			want: []*types.TreeNode{
+				types.NewTree(1, -1, 2),
+				types.NewTree(2, 1),
 			},
 		},
 		{
 			n: 1,
-			want: []*TreeNode{
-				NewTree(1),
+			want: []*types.TreeNode{
+				types.NewTree(1),
 			},
 		},
 		{
 			n: 3,
-			want: []*TreeNode{
-				NewTree(1, -1, 3, 2),
-				NewTree(3, 2, -1, 1),
-				NewTree(3, 1, -1, -1, 2),
-				NewTree(2, 1, 3),
-				NewTree(1, -1, 2, -1, 3),
+			want: []*types.TreeNode{
+				types.NewTree(1, -1, 3, 2),
+				types.NewTree(3, 2, -1, 1),
+				types.NewTree(3, 1, -1, -1, 2),
+				types.NewTree(2, 1, 3),
+				types.NewTree(1, -1, 2, -1, 3),
 			},
 		},
 		{
@@ -41,7 +41,7 @@ func TestGenerateTrees(t *testing.T) {
 		},
 	}
 
-	slice2Set := func(trees []*TreeNode) map[string]struct{} {
+	slice2Set := func(trees []*types.TreeNode) map[string]struct{} {
 		set := make(map[string]struct{}, len(trees))
 		for _, tree := range trees {
 			serialized := tree.String()
@@ -52,12 +52,7 @@ func TestGenerateTrees(t *testing.T) {
 		}
 		return set
 	}
-
 	for _, tt := range tests {
-		got := GenerateTrees(tt.n)
-		gotSet, wantSet := slice2Set(got), slice2Set(tt.want)
-		if !reflect.DeepEqual(gotSet, wantSet) {
-			t.Errorf("got %v, want %v", got, tt.want)
-		}
+		assert.Equal(t, slice2Set(tt.want), slice2Set(GenerateTrees(tt.n)))
 	}
 }

@@ -1,6 +1,10 @@
 package check_if_it_is_a_straight_line
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestCheckStraightLine(t *testing.T) {
 	tests := []struct {
@@ -21,10 +25,6 @@ func TestCheckStraightLine(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := CheckStraightLine(tt.coordinates)
-		if got != tt.want {
-			t.Errorf("CheckStraightLine(%v) = %v, want %v",
-				tt.coordinates, got, tt.want)
-		}
+		assert.Equal(t, tt.want, CheckStraightLine(tt.coordinates))
 	}
 }

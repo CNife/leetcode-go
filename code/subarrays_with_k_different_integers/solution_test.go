@@ -1,6 +1,10 @@
 package subarrays_with_k_different_integers
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestSubarraysWithKDistinct(t *testing.T) {
 	tests := []struct {
@@ -17,10 +21,6 @@ func TestSubarraysWithKDistinct(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := SubarraysWithKDistinct(tt.nums, tt.k)
-		if got != tt.want {
-			t.Errorf("SubarraysWithKDistinct(%v, %v) = %v, want %v",
-				tt.nums, tt.k, got, tt.want)
-		}
+		assert.Equal(t, tt.want, SubarraysWithKDistinct(tt.nums, tt.k))
 	}
 }

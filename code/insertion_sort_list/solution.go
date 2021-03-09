@@ -3,7 +3,7 @@ package insertion_sort_list
 import (
 	"math"
 
-	"github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
 )
 
 func InsertionSortList(head *types.ListNode) *types.ListNode {

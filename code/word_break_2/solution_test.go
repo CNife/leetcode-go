@@ -1,9 +1,10 @@
 package word_break_2
 
 import (
-	"reflect"
-	"sort"
 	"testing"
+
+	"github.com/CNife/leetcode-go/util"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestWordBreak(t *testing.T) {
@@ -40,16 +41,7 @@ func TestWordBreak(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got, want := sortStrings(WordBreak(tt.s, tt.words)), sortStrings(tt.want)
-		if !reflect.DeepEqual(got, want) {
-			t.Errorf("WordBreak(%v, %v) = %v, want %v", tt.s, tt.words, got, want)
-		}
+		assert.Equal(t, util.SortStrings(tt.want),
+			util.SortStrings(WordBreak(tt.s, tt.words)))
 	}
-}
-
-func sortStrings(ss []string) []string {
-	sort.Slice(ss, func(i, j int) bool {
-		return ss[i] < ss[j]
-	})
-	return ss
 }

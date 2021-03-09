@@ -1,6 +1,10 @@
 package longest_continuous_increasing_subsequence
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestFindLengthOfLCIS(t *testing.T) {
 	tests := []struct {
@@ -17,9 +21,6 @@ func TestFindLengthOfLCIS(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := FindLengthOfLCIS(tt.nums); got != tt.want {
-			t.Errorf("FindLengthOfLCIS(%v) = %v, want %v",
-				tt.nums, got, tt.want)
-		}
+		assert.Equal(t, tt.want, FindLengthOfLCIS(tt.nums))
 	}
 }

@@ -1,6 +1,6 @@
 package remove_nth_node_from_end_of_list
 
-import "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode-go/types"
 
 func RemoveNthFromEnd(head *types.ListNode, n int) *types.ListNode {
 	if n < 1 {

@@ -1,8 +1,9 @@
 package text_justification
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestFullJustify(t *testing.T) {
@@ -38,9 +39,6 @@ func TestFullJustify(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := FullJustify(tt.words, tt.maxWidth); !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("FullJustify(%v, %v) = %v, want %v",
-				tt.words, tt.maxWidth, got, tt.want)
-		}
+		assert.Equal(t, tt.want, FullJustify(tt.words, tt.maxWidth))
 	}
 }

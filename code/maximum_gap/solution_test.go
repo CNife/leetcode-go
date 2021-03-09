@@ -1,21 +1,34 @@
 package maximum_gap
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestMaximumGap(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want int
 	}{
-		{nil, 0},
-		{[]int{1}, 0},
-		{[]int{1, 10000000}, 9999999},
-		{[]int{3, 6, 9, 1}, 3},
+		{
+			nums: nil,
+			want: 0,
+		},
+		{
+			nums: []int{1},
+			want: 0,
+		},
+		{
+			nums: []int{1, 10000000},
+			want: 9999999,
+		},
+		{
+			nums: []int{3, 6, 9, 1},
+			want: 3,
+		},
 	}
 	for _, tt := range tests {
-		if got := MaximumGap(tt.nums); got != tt.want {
-			t.Errorf("MaximumGap(%v) = %v, want %v",
-				tt.nums, got, tt.want)
-		}
+		assert.Equal(t, tt.want, MaximumGap(tt.nums))
 	}
 }

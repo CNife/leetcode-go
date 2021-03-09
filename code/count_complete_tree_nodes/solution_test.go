@@ -3,22 +3,30 @@ package count_complete_tree_nodes
 import (
 	"testing"
 
-	. "github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCountNodes(t *testing.T) {
 	tests := []struct {
-		root *TreeNode
+		root *types.TreeNode
 		want int
 	}{
-		{NewTree(1, 2, 3, 4, 5, 6), 6},
-		{nil, 0},
-		{NewTree(1, 2, 3), 3},
+		{
+			root: nil,
+			want: 0,
+		},
+		{
+
+			root: types.NewTree(1, 2, 3, 4, 5, 6),
+			want: 6,
+		},
+		{
+			root: types.NewTree(1, 2, 3),
+			want: 3,
+		},
 	}
 	for _, tt := range tests {
-		if got := CountNodes(tt.root); got != tt.want {
-			t.Errorf("CountNodes(%v) = %v, want %v",
-				tt.root, got, tt.want)
-		}
+		assert.Equal(t, tt.want, CountNodes(tt.root))
 	}
 }

@@ -1,8 +1,9 @@
 package relative_sort_array
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestRelativeSortArray(t *testing.T) {
@@ -16,10 +17,6 @@ func TestRelativeSortArray(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := RelativeSortArray(tt.arr1, tt.arr2)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("RelativeSortArray(%v, %v) = %v, want %v",
-				tt.arr1, tt.arr2, got, tt.want)
-		}
+		assert.Equal(t, tt.want, RelativeSortArray(tt.arr1, tt.arr2))
 	}
 }

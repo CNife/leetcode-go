@@ -1,6 +1,6 @@
 package flatten_binary_tree_to_linked_list
 
-import "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode-go/types"
 
 func Flatten(root *types.TreeNode) {
 	if root != nil {

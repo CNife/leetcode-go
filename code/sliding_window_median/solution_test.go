@@ -1,6 +1,10 @@
 package sliding_window_median
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestMedianSlidingWindow(t *testing.T) {
 	tests := []struct {
@@ -15,13 +19,6 @@ func TestMedianSlidingWindow(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := MedianSlidingWindow(tt.nums, tt.k)
-		for i, wantNum := range tt.want {
-			gotNum := got[i]
-			if wantNum-gotNum >= 1e-5 || gotNum-wantNum >= 1e-5 {
-				t.Fatalf("MedianSlidingWindow(%v, %v) = %v, want %v",
-					tt.nums, tt.k, got, tt.want)
-			}
-		}
+		assert.Equal(t, tt.want, MedianSlidingWindow(tt.nums, tt.k))
 	}
 }

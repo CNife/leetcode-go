@@ -3,6 +3,8 @@ package split_array_into_fibonacci_sequence
 import (
 	"strconv"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSplitIntoFibonacci(t *testing.T) {
@@ -10,17 +12,30 @@ func TestSplitIntoFibonacci(t *testing.T) {
 		s           string
 		hasSolution bool
 	}{
-		{"0123", false},
-		{"123456579", true},
-		{"11235813", true},
-		{"112358130", false},
-		{"1101111", true},
+		{
+			s:           "0123",
+			hasSolution: false,
+		},
+		{
+			s:           "123456579",
+			hasSolution: true,
+		},
+		{
+			s:           "11235813",
+			hasSolution: true,
+		},
+		{
+			s:           "112358130",
+			hasSolution: false,
+		},
+		{
+			s:           "1101111",
+			hasSolution: true,
+		},
 	}
 	for _, tt := range tests {
-		got := SplitIntoFibonacci(tt.s)
-		if !isValidSolution(tt.s, tt.hasSolution, got) {
-			t.Errorf("s is \"%v\", got is %v", tt.s, got)
-		}
+		assert.True(t,
+			isValidSolution(tt.s, tt.hasSolution, SplitIntoFibonacci(tt.s)))
 	}
 }
 

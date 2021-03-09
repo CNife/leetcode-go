@@ -1,19 +1,26 @@
 package remove_duplicate_letters
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestRemoveDuplicateLetters(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
 	tests := []struct {
 		s, want string
 	}{
-		{"bcabc", "abc"},
-		{"cbacdcbc", "acdb"},
+		{
+			s:    "bcabc",
+			want: "abc",
+		},
+		{
+			s:    "cbacdcbc",
+			want: "acdb",
+		},
 	}
 	for _, tt := range tests {
-		if got := RemoveDuplicateLetters(tt.s); got != tt.want {
-			t.Errorf("RemoveDuplicateLetters(%v) = %v, want %v",
-				tt.s, got, tt.want)
-		}
+		assert.Equal(t, tt.want, RemoveDuplicateLetters(tt.s))
 	}
 }

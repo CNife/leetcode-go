@@ -1,20 +1,30 @@
 package dota2_senate
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestPredicatePartyVictory(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
 	tests := []struct {
 		senate, want string
 	}{
-		{"RDD", dire},
-		{"RD", radiant},
-		{"DRDRR", dire},
+		{
+			senate: "RDD",
+			want:   dire,
+		},
+		{
+			senate: "RD",
+			want:   radiant,
+		},
+		{
+			senate: "DRDRR",
+			want:   dire,
+		},
 	}
 	for _, tt := range tests {
-		if got := PredicatePartyVictory(tt.senate); got != tt.want {
-			t.Errorf("PredicatePartyVictory(%v) = %v, want %v",
-				tt.senate, got, tt.want)
-		}
+		assert.Equal(t, tt.want, PredicatePartyVictory(tt.senate))
 	}
 }

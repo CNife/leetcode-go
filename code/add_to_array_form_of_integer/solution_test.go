@@ -1,8 +1,9 @@
 package add_to_array_form_of_integer
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestAddToArrayForm(t *testing.T) {
@@ -11,17 +12,33 @@ func TestAddToArrayForm(t *testing.T) {
 		k     int
 		want  []int
 	}{
-		{[]int{1, 2, 0, 0}, 34, []int{1, 2, 3, 4}},
-		{[]int{2, 7, 4}, 181, []int{4, 5, 5}},
-		{[]int{2, 1, 5}, 806, []int{1, 0, 2, 1}},
-		{[]int{9, 9, 9, 9, 9, 9, 9, 9, 9, 9}, 1, []int{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}},
-		{[]int{6}, 809, []int{8, 1, 5}},
+		{
+			array: []int{1, 2, 0, 0},
+			k:     34,
+			want:  []int{1, 2, 3, 4},
+		},
+		{
+			array: []int{2, 7, 4},
+			k:     181,
+			want:  []int{4, 5, 5},
+		},
+		{
+			array: []int{2, 1, 5},
+			k:     806,
+			want:  []int{1, 0, 2, 1},
+		},
+		{
+			array: []int{9, 9, 9, 9, 9, 9, 9, 9, 9, 9},
+			k:     1,
+			want:  []int{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+		},
+		{
+			array: []int{6},
+			k:     809,
+			want:  []int{8, 1, 5},
+		},
 	}
 	for _, tt := range tests {
-		got := AddToArrayForm(tt.array, tt.k)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("AddToArrayForm(%v, %v) = %v, want %v",
-				tt.array, tt.k, got, tt.want)
-		}
+		assert.Equal(t, tt.want, AddToArrayForm(tt.array, tt.k))
 	}
 }

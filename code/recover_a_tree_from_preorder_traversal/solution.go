@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
 )
 
 func RecoverFromPreorder(s string) *types.TreeNode {

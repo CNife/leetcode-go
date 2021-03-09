@@ -1,8 +1,9 @@
 package bricks_falling_when_hit
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestHitBricks(t *testing.T) {
@@ -34,10 +35,6 @@ func TestHitBricks(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := HitBricks(tt.grid, tt.hits)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("HitBricks(%v, %v) = %v, want %v",
-				tt.grid, tt.hits, got, tt.want)
-		}
+		assert.Equal(t, tt.want, HitBricks(tt.grid, tt.hits))
 	}
 }

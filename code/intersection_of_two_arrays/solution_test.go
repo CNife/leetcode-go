@@ -1,24 +1,29 @@
 package intersection_of_two_arrays
 
 import (
-	"reflect"
-	"sort"
 	"testing"
+
+	"github.com/CNife/leetcode-go/util"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestIntersection(t *testing.T) {
 	tests := []struct {
 		arr1, arr2, want []int
 	}{
-		{[]int{1, 2, 2, 1}, []int{2, 2}, []int{2}},
-		{[]int{4, 9, 5}, []int{9, 4, 9, 8, 4}, []int{9, 4}},
+		{
+			arr1: []int{1, 2, 2, 1},
+			arr2: []int{2, 2},
+			want: []int{2},
+		},
+		{
+			arr1: []int{4, 9, 5},
+			arr2: []int{9, 4, 9, 8, 4},
+			want: []int{9, 4},
+		},
 	}
 	for _, tt := range tests {
-		got := Intersection(tt.arr1, tt.arr2)
-		sort.Ints(got)
-		sort.Ints(tt.want)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("Intersection(%v, %v) = %v, want %v", tt.arr1, tt.arr2, got, tt.want)
-		}
+		assert.Equal(t, util.SortInts(tt.want),
+			util.SortInts(Intersection(tt.arr1, tt.arr2)))
 	}
 }

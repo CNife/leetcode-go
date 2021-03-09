@@ -1,6 +1,10 @@
 package most_stones_removed_with_same_row_or_column
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestRemoveStones(t *testing.T) {
 	tests := []struct {
@@ -25,10 +29,6 @@ func TestRemoveStones(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := RemoveStones(tt.stones)
-		if got != tt.want {
-			t.Errorf("RemoveStones(%v) = %v, want %v",
-				tt.stones, got, tt.want)
-		}
+		assert.Equal(t, tt.want, RemoveStones(tt.stones))
 	}
 }

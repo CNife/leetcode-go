@@ -1,6 +1,6 @@
 package binary_tree_preorder_traversal
 
-import "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode-go/types"
 
 func PreorderTraversalRecursion(root *types.TreeNode) []int {
 	if root == nil {

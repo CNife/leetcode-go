@@ -1,6 +1,10 @@
 package maximal_rectangle
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestMaximalRectangle(t *testing.T) {
 	tests := []struct {
@@ -23,15 +27,30 @@ func TestMaximalRectangle(t *testing.T) {
 			},
 			want: 6,
 		},
-		{nil, 0},
-		{[][]byte{{'0'}}, 0},
-		{[][]byte{{'1'}}, 1},
-		{[][]byte{{'0', '0'}}, 0},
+		{
+			matrix: nil,
+			want:   0,
+		},
+		{
+			matrix: [][]byte{
+				{'0'},
+			},
+			want: 0,
+		},
+		{
+			matrix: [][]byte{
+				{'1'},
+			},
+			want: 1,
+		},
+		{
+			matrix: [][]byte{
+				{'0', '0'},
+			},
+			want: 0,
+		},
 	}
 	for _, tt := range tests {
-		if got := MaximalRectangle(tt.matrix); got != tt.want {
-			t.Errorf("MaximalRectangle(%v) = %v, want %v",
-				tt.matrix, got, tt.want)
-		}
+		assert.Equal(t, tt.want, MaximalRectangle(tt.matrix))
 	}
 }

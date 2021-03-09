@@ -1,6 +1,6 @@
 package sort_list
 
-import "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode-go/types"
 
 func SortList(head *types.ListNode) *types.ListNode {
 	if head == nil || head.Next == nil {

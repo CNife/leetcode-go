@@ -1,6 +1,10 @@
 package remove_max_number_of_edges_to_keep_graph_fully_traversable
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestMaxNumEdgesToRemove(t *testing.T) {
 	tests := []struct {
@@ -41,10 +45,6 @@ func TestMaxNumEdgesToRemove(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := MaxNumEdgesToRemove(tt.n, tt.edges)
-		if got != tt.want {
-			t.Errorf("MaxNumEdgesToRemove(%v, %v) = %v, want %v",
-				tt.n, tt.edges, got, tt.want)
-		}
+		assert.Equal(t, tt.want, MaxNumEdgesToRemove(tt.n, tt.edges))
 	}
 }

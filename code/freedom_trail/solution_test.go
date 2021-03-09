@@ -1,6 +1,10 @@
 package freedom_trail
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestFindRotateSteps(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
@@ -8,14 +12,23 @@ func TestFindRotateSteps(t *testing.T) {
 		ring, key string
 		want      int
 	}{
-		{"edcba", "abcde", 10},
-		{"godding", "gd", 4},
-		{"caotmcaataijjxi", "oatjiioicitatajtijciocjcaaxaaatmctxamacaamjjx", 137},
+		{
+			ring: "edcba",
+			key:  "abcde",
+			want: 10,
+		},
+		{
+			ring: "godding",
+			key:  "gd",
+			want: 4,
+		},
+		{
+			ring: "caotmcaataijjxi",
+			key:  "oatjiioicitatajtijciocjcaaxaaatmctxamacaamjjx",
+			want: 137,
+		},
 	}
 	for _, tt := range tests {
-		if got := FindRotateSteps(tt.ring, tt.key); got != tt.want {
-			t.Errorf("FindRotateSteps(%v, %v) = %v, want %v",
-				tt.ring, tt.key, got, tt.want)
-		}
+		assert.Equal(t, tt.want, FindRotateSteps(tt.ring, tt.key))
 	}
 }

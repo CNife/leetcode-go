@@ -1,6 +1,10 @@
 package stitch_videos
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestVideoStitching(t *testing.T) {
 	tests := []struct {
@@ -47,8 +51,6 @@ func TestVideoStitching(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := VideoStitching(tt.clips, tt.t); got != tt.want {
-			t.Errorf("VideoStitching(%v, %v) = %v, want %v", tt.clips, tt.t, got, tt.want)
-		}
+		assert.Equal(t, tt.want, VideoStitching(tt.clips, tt.t))
 	}
 }

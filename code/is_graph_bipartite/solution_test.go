@@ -1,6 +1,10 @@
 package is_graph_bipartite
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestIsBipartite(t *testing.T) {
 	tests := []struct {
@@ -42,8 +46,6 @@ func TestIsBipartite(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := IsBipartite(tt.graph); got != tt.want {
-			t.Errorf("graph %v, got %v, want %v", tt.graph, got, tt.want)
-		}
+		assert.Equal(t, tt.want, IsBipartite(tt.graph))
 	}
 }

@@ -2,7 +2,7 @@ package add_binary
 
 import "strings"
 
-func addBinary(a, b string) string {
+func AddBinary(a, b string) string {
 	var ad adder
 	i, j := len(a)-1, len(b)-1
 	for ; i >= 0 && j >= 0; i, j = i-1, j-1 {

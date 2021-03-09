@@ -1,6 +1,6 @@
 package sum_root_to_leaf_numbers
 
-import "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode-go/types"
 
 func SumNumbers(root *types.TreeNode) int {
 	if root == nil {

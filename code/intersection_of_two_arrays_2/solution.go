@@ -1,6 +1,6 @@
 package intersection_of_two_arrays_2
 
-func intersect(lhs []int, rhs []int) []int {
+func Intersect(lhs []int, rhs []int) []int {
 	lhsMap, rhsMap := buildMap(lhs), buildMap(rhs)
 	if len(lhsMap) > len(rhsMap) {
 		lhsMap, rhsMap = rhsMap, lhsMap

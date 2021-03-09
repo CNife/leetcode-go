@@ -1,6 +1,10 @@
 package count_of_range_sum
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestCountRangeSum(t *testing.T) {
 	tests := []struct {
@@ -16,10 +20,6 @@ func TestCountRangeSum(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := CountRangeSum(tt.nums, tt.lower, tt.higher)
-		if got != tt.want {
-			t.Errorf("CountRangeSum(%v, %v, %v) = %v, want %v",
-				tt.nums, tt.lower, tt.higher, got, tt.want)
-		}
+		assert.Equal(t, tt.want, CountRangeSum(tt.nums, tt.lower, tt.higher))
 	}
 }

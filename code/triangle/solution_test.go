@@ -1,6 +1,10 @@
 package triangle
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestMinimumTotal(t *testing.T) {
 	tests := []struct {
@@ -18,8 +22,6 @@ func TestMinimumTotal(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := MinimumTotal(tt.triangle); got != tt.want {
-			t.Errorf("MinimumTotal(%v)=>%v, want %v", tt.triangle, got, tt.want)
-		}
+		assert.Equal(t, tt.want, MinimumTotal(tt.triangle))
 	}
 }

@@ -1,8 +1,9 @@
 package insert_interval
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestInsert(t *testing.T) {
@@ -23,8 +24,6 @@ func TestInsert(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := Insert(tt.intervals, tt.newInterval); !reflect.DeepEqual(got, tt.want) {
-			t.Fatalf("Insert(%v, %v) = %v, want %v", tt.intervals, tt.newInterval, got, tt.want)
-		}
+		assert.Equal(t, tt.want, Insert(tt.intervals, tt.newInterval))
 	}
 }

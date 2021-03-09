@@ -1,6 +1,10 @@
 package minimum_number_of_arrows_to_burst_balloons
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestFindMinArrowShots(t *testing.T) {
 	tests := []struct {
@@ -25,9 +29,6 @@ func TestFindMinArrowShots(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := FindMinArrowShots(tt.points); got != tt.want {
-			t.Errorf("FindMinArrowShots(%v) = %v, want %v",
-				tt.points, got, tt.want)
-		}
+		assert.Equal(t, tt.want, FindMinArrowShots(tt.points))
 	}
 }

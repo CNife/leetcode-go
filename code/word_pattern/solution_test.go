@@ -1,6 +1,10 @@
 package word_pattern
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestWordPattern(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
@@ -8,16 +12,33 @@ func TestWordPattern(t *testing.T) {
 		pattern, s string
 		want       bool
 	}{
-		{"abc", "dog cat dog", false},
-		{"abba", "dog cat cat dog", true},
-		{"abba", "dog cat cat fish", false},
-		{"aaaa", "dog cat cat dog", false},
-		{"abba", "dog dog dog dog", false},
+		{
+			pattern: "abc",
+			s:       "dog cat dog",
+			want:    false,
+		},
+		{
+			pattern: "abba",
+			s:       "dog cat cat dog",
+			want:    true,
+		},
+		{
+			pattern: "abba",
+			s:       "dog cat cat fish",
+			want:    false,
+		},
+		{
+			pattern: "aaaa",
+			s:       "dog cat cat dog",
+			want:    false,
+		},
+		{
+			pattern: "abba",
+			s:       "dog dog dog dog",
+			want:    false,
+		},
 	}
 	for _, tt := range tests {
-		if got := WordPattern(tt.pattern, tt.s); got != tt.want {
-			t.Errorf("WordPattern(%v, %v) = %v, want %v",
-				tt.pattern, tt.s, got, tt.want)
-		}
+		assert.Equal(t, tt.want, WordPattern(tt.pattern, tt.s))
 	}
 }

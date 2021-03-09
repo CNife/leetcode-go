@@ -3,7 +3,7 @@ package binary_tree_maximum_path_sum
 import (
 	"math/bits"
 
-	"github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
 )
 
 func MaxPathSum(root *types.TreeNode) int {

@@ -1,6 +1,10 @@
 package remove_k_digits
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestRemoveKDigits(t *testing.T) {
 	tests := []struct {
@@ -8,14 +12,23 @@ func TestRemoveKDigits(t *testing.T) {
 		k    int
 		want string
 	}{
-		{"1432219", 3, "1219"},
-		{"10200", 1, "200"},
-		{"10", 1, "0"},
+		{
+			num:  "1432219",
+			k:    3,
+			want: "1219",
+		},
+		{
+			num:  "10200",
+			k:    1,
+			want: "200",
+		},
+		{
+			num:  "10",
+			k:    1,
+			want: "0",
+		},
 	}
 	for _, tt := range tests {
-		if got := RemoveKDigits(tt.num, tt.k); got != tt.want {
-			t.Errorf("RemoveKDigits(%v, %v) = %v, want %v",
-				tt.num, tt.k, got, tt.want)
-		}
+		assert.Equal(t, tt.want, RemoveKDigits(tt.num, tt.k))
 	}
 }

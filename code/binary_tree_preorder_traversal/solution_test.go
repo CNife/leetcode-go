@@ -1,22 +1,19 @@
 package binary_tree_preorder_traversal
 
 import (
-	"reflect"
 	"testing"
 
-	. "github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestPreorderTraversal(t *testing.T) {
-	tests := []*TreeNode{
+	tests := []*types.TreeNode{
 		nil,
-		NewTree(1, -1, 2, 3),
+		types.NewTree(1, -1, 2, 3),
 	}
 	for _, tt := range tests {
-		want := PreorderTraversalRecursion(tt)
-		got := PreorderTraversalIteration(tt)
-		if !reflect.DeepEqual(want, got) {
-			t.Errorf("PreorderTraversal(%v) = %v, want %v", tt, got, want)
-		}
+		assert.Equal(t, PreorderTraversalIteration(tt),
+			PreorderTraversalRecursion(tt))
 	}
 }

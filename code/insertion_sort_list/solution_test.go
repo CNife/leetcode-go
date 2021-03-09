@@ -1,10 +1,10 @@
 package insertion_sort_list
 
 import (
-	"reflect"
 	"testing"
 
-	"github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestInsertionSortList(t *testing.T) {
@@ -29,9 +29,6 @@ func TestInsertionSortList(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := InsertionSortList(tt.head); !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("InsertionSortList(%v) = %v, want %v",
-				tt.head, got, tt.want)
-		}
+		assert.Equal(t, tt.want, InsertionSortList(tt.head))
 	}
 }

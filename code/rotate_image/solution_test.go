@@ -1,8 +1,9 @@
 package rotate_image
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestRotate(t *testing.T) {
@@ -37,18 +38,7 @@ func TestRotate(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		m, n := len(tt.matrix), len(tt.matrix[0])
-		clonedMatrix := make([][]int, m)
-		for i := range tt.matrix {
-			clonedMatrix[i] = make([]int, n)
-			for j := range clonedMatrix[i] {
-				clonedMatrix[i][j] = tt.matrix[i][j]
-			}
-		}
-
-		Rotate(clonedMatrix)
-		if !reflect.DeepEqual(clonedMatrix, tt.want) {
-			t.Errorf("Rotate(%v) = %v, want %v", tt.matrix, clonedMatrix, tt.want)
-		}
+		Rotate(tt.matrix)
+		assert.Equal(t, tt.want, tt.matrix)
 	}
 }

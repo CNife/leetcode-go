@@ -2,6 +2,8 @@ package split_array_into_consecutive_subsequences
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestIsPossible(t *testing.T) {
@@ -9,14 +11,20 @@ func TestIsPossible(t *testing.T) {
 		nums []int
 		want bool
 	}{
-		{[]int{1, 2, 3, 3, 4, 5}, true},
-		{[]int{1, 2, 3, 3, 4, 4, 5, 5}, true},
-		{[]int{1, 2, 3, 4, 4, 5}, false},
+		{
+			nums: []int{1, 2, 3, 3, 4, 5},
+			want: true,
+		},
+		{
+			nums: []int{1, 2, 3, 3, 4, 4, 5, 5},
+			want: true,
+		},
+		{
+			nums: []int{1, 2, 3, 4, 4, 5},
+			want: false,
+		},
 	}
 	for _, tt := range tests {
-		if got := IsPossible(tt.nums); got != tt.want {
-			t.Errorf("IsPossible(%v) = %v, want %v",
-				tt.nums, got, tt.want)
-		}
+		assert.Equal(t, tt.want, IsPossible(tt.nums))
 	}
 }

@@ -2,7 +2,7 @@ package longest_common_prefix
 
 import "strings"
 
-func longestCommonPrefix(strs []string) string {
+func LongestCommonPrefix(strs []string) string {
 	if len(strs) == 0 {
 		return ""
 	}

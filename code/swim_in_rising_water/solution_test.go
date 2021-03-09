@@ -1,6 +1,10 @@
 package swim_in_rising_water
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestSwimInWater(t *testing.T) {
 	tests := []struct {
@@ -35,9 +39,6 @@ func TestSwimInWater(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := SwimInWater(tt.grid); got != tt.want {
-			t.Errorf("SwimInWater(%v) = %v, want %v",
-				tt.grid, got, tt.want)
-		}
+		assert.Equal(t, tt.want, SwimInWater(tt.grid))
 	}
 }

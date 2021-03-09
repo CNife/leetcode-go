@@ -1,6 +1,10 @@
 package gas_station
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestCanCompleteCircuit(t *testing.T) {
 	tests := []struct {
@@ -19,9 +23,6 @@ func TestCanCompleteCircuit(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := CanCompleteCircuit(tt.gas, tt.cost); got != tt.want {
-			t.Errorf("CanCompleteCircuit(%v, %v) = %v, want %v",
-				tt.gas, tt.cost, got, tt.want)
-		}
+		assert.Equal(t, tt.want, CanCompleteCircuit(tt.gas, tt.cost))
 	}
 }

@@ -1,6 +1,10 @@
 package dungeon_game
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestCalculateMinimumHP(t *testing.T) {
 	tests := []struct {
@@ -17,8 +21,6 @@ func TestCalculateMinimumHP(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := CalculateMinimumHP(tt.dungeon); got != tt.want {
-			t.Errorf("CalculateMinimumHP(%v) = %v, want %v", tt.dungeon, got, tt.want)
-		}
+		assert.Equal(t, tt.want, CalculateMinimumHP(tt.dungeon))
 	}
 }

@@ -1,6 +1,10 @@
 package number_of_equivalent_domino_pairs
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestNumEquivDominoPairs(t *testing.T) {
 	tests := []struct {
@@ -18,14 +22,6 @@ func TestNumEquivDominoPairs(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		clonedDominoes := make([][]int, len(tt.dominoes))
-		for i := range clonedDominoes {
-			clonedDominoes[i] = []int{tt.dominoes[i][0], tt.dominoes[i][1]}
-		}
-
-		if got := NumEquivDominoPairs(clonedDominoes); got != tt.want {
-			t.Errorf("NumEquivDominoPairs(%v) = %v, want %v",
-				tt.dominoes, got, tt.want)
-		}
+		assert.Equal(t, tt.want, NumEquivDominoPairs(tt.dominoes))
 	}
 }

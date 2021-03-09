@@ -1,21 +1,38 @@
 package increasing_decreasing_string
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestSortString(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
 	tests := []struct {
 		s, want string
 	}{
-		{"aaaabbbbcccc", "abccbaabccba"},
-		{"rat", "art"},
-		{"leetcode", "cdelotee"},
-		{"ggggggg", "ggggggg"},
-		{"spo", "ops"},
+		{
+			s:    "aaaabbbbcccc",
+			want: "abccbaabccba",
+		},
+		{
+			s:    "rat",
+			want: "art",
+		},
+		{
+			s:    "leetcode",
+			want: "cdelotee",
+		},
+		{
+			s:    "ggggggg",
+			want: "ggggggg",
+		},
+		{
+			s:    "spo",
+			want: "ops",
+		},
 	}
 	for _, tt := range tests {
-		if got := SortString(tt.s); got != tt.want {
-			t.Errorf("SortString(%v) = %v, want %v", tt.s, got, tt.want)
-		}
+		assert.Equal(t, tt.want, SortString(tt.s))
 	}
 }

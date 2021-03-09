@@ -1,8 +1,9 @@
 package evaluate_division
 
 import (
-	"math"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCalcEquation(t *testing.T) {
@@ -32,27 +33,6 @@ func TestCalcEquation(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := CalcEquation(tt.equations, tt.values, tt.queries)
-		fail := func() {
-			t.Errorf("CalcEquation(%v, %v, %v) = %v, want %v",
-				tt.equations, tt.values, tt.queries, got, tt.want)
-		}
-
-		if len(got) != len(tt.want) {
-			fail()
-		}
-		for i, x := range got {
-			y := tt.want[i]
-			if !isClose(x, y) {
-				fail()
-			}
-		}
+		assert.Equal(t, tt.want, CalcEquation(tt.equations, tt.values, tt.queries))
 	}
-}
-
-func isClose(x, y float64) bool {
-	if x < y {
-		x, y = y, x
-	}
-	return x-y < math.SmallestNonzeroFloat64
 }

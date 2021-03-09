@@ -14,9 +14,8 @@ func LargestPerimeter(nums []int) int {
 	for third < len(nums) {
 		if nums[third]+nums[second] > nums[first] {
 			return nums[first] + nums[second] + nums[third]
-		} else {
-			first, second, third = first+1, second+1, third+1
 		}
+		first, second, third = first+1, second+1, third+1
 	}
 	return 0
 }

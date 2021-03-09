@@ -1,6 +1,10 @@
 package first_unique_character_in_a_string
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestFirstUnique(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
@@ -8,13 +12,16 @@ func TestFirstUnique(t *testing.T) {
 		s    string
 		want int
 	}{
-		{"leetcode", 0},
-		{"loveleetcode", 2},
+		{
+			s:    "leetcode",
+			want: 0,
+		},
+		{
+			s:    "loveleetcode",
+			want: 2,
+		},
 	}
 	for _, tt := range tests {
-		if got := FirstUnique(tt.s); got != tt.want {
-			t.Errorf("FirstUnique(%v) = %v, want %v",
-				tt.s, got, tt.want)
-		}
+		assert.Equal(t, tt.want, FirstUnique(tt.s))
 	}
 }

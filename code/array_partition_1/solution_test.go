@@ -7,6 +7,20 @@ import (
 )
 
 func TestArrayPairSum(t *testing.T) {
-	assert.Equal(t, 4, ArrayPairSum([]int{1, 4, 3, 2}))
-	assert.Equal(t, 9, ArrayPairSum([]int{6, 2, 6, 5, 1, 2}))
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{
+			nums: []int{1, 4, 3, 2},
+			want: 4,
+		},
+		{
+			nums: []int{6, 2, 6, 5, 1, 2},
+			want: 9,
+		},
+	}
+	for _, tt := range tests {
+		assert.Equal(t, tt.want, ArrayPairSum(tt.nums))
+	}
 }

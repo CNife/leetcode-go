@@ -2,8 +2,9 @@ package sort_integers_by_the_number_of_1_bits
 
 import (
 	"math/bits"
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSortByBits(t *testing.T) {
@@ -32,9 +33,7 @@ func TestSortByBits(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := SortByBits(tt.array); !reflect.DeepEqual(intoBits(got), intoBits(tt.want)) {
-			t.Errorf("SortByBits(%v) = %v, want %v", tt.array, got, tt.want)
-		}
+		assert.Equal(t, intoBits(tt.want), intoBits(SortByBits(tt.array)))
 	}
 }
 

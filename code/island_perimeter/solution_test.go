@@ -1,6 +1,10 @@
 package island_perimeter
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestIslandPerimeter(t *testing.T) {
 	tests := []struct {
@@ -18,8 +22,6 @@ func TestIslandPerimeter(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := IslandPerimeter(tt.grid); got != tt.want {
-			t.Errorf("IslandPerimeter(%v) = %v, want %v", tt.grid, got, tt.want)
-		}
+		assert.Equal(t, tt.want, IslandPerimeter(tt.grid))
 	}
 }

@@ -1,8 +1,9 @@
 package rotate_array
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestRotate(t *testing.T) {
@@ -11,21 +12,19 @@ func TestRotate(t *testing.T) {
 		k    int
 		want []int
 	}{
-		{[]int{1, 2, 3, 4, 5, 6, 7}, 3, []int{5, 6, 7, 1, 2, 3, 4}},
-		{[]int{-1, -100, 3, 99}, 2, []int{3, 99, -1, -100}},
+		{
+			nums: []int{1, 2, 3, 4, 5, 6, 7},
+			k:    3,
+			want: []int{5, 6, 7, 1, 2, 3, 4},
+		},
+		{
+			nums: []int{-1, -100, 3, 99},
+			k:    2,
+			want: []int{3, 99, -1, -100},
+		},
 	}
 	for _, tt := range tests {
-		got := cloneSlice(tt.nums)
-		Rotate(got, tt.k)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("Rotate(%v, %v) = %v, want %v",
-				tt.nums, tt.k, got, tt.want)
-		}
+		Rotate(tt.nums, tt.k)
+		assert.Equal(t, tt.want, tt.nums)
 	}
-}
-
-func cloneSlice(slice []int) []int {
-	result := make([]int, len(slice))
-	copy(result, slice)
-	return result
 }

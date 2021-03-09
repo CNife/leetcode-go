@@ -1,20 +1,37 @@
 package fibonacci_number
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestFib(t *testing.T) {
 	tests := []struct {
 		n, want int
 	}{
-		{0, 0},
-		{1, 1},
-		{2, 1},
-		{3, 2},
-		{4, 3},
+		{
+			n:    0,
+			want: 0,
+		},
+		{
+			n:    1,
+			want: 1,
+		},
+		{
+			n:    2,
+			want: 1,
+		},
+		{
+			n:    3,
+			want: 2,
+		},
+		{
+			n:    4,
+			want: 3,
+		},
 	}
 	for _, tt := range tests {
-		if got := Fib(tt.n); got != tt.want {
-			t.Errorf("Fib(%v) = %v, want %v", tt.n, got, tt.want)
-		}
+		assert.Equal(t, tt.want, Fib(tt.n))
 	}
 }

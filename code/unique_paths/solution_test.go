@@ -1,21 +1,42 @@
 package unique_paths
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestUniquePaths(t *testing.T) {
 	tests := []struct {
 		m, n, want int
 	}{
-		{23, 12, 193536720},
-		{3, 7, 28},
-		{3, 2, 3},
-		{7, 3, 28},
-		{3, 3, 6},
+		{
+			m:    23,
+			n:    12,
+			want: 193536720,
+		},
+		{
+			m:    3,
+			n:    7,
+			want: 28,
+		},
+		{
+			m:    3,
+			n:    2,
+			want: 3,
+		},
+		{
+			m:    7,
+			n:    3,
+			want: 28,
+		},
+		{
+			m:    3,
+			n:    3,
+			want: 6,
+		},
 	}
 	for _, tt := range tests {
-		if got := UniquePaths(tt.m, tt.n); got != tt.want {
-			t.Errorf("UniquePaths(%v, %v) = %v, want %v",
-				tt.m, tt.n, got, tt.want)
-		}
+		assert.Equal(t, tt.want, UniquePaths(tt.m, tt.n))
 	}
 }

@@ -1,8 +1,9 @@
 package binary_prefix_divisible_by_5
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestPrefixDividedBy5(t *testing.T) {
@@ -28,10 +29,6 @@ func TestPrefixDividedBy5(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := PrefixDividedBy5(tt.array)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("PrefixDividedBy5(%v) = %v, want %v",
-				tt.array, got, tt.want)
-		}
+		assert.Equal(t, tt.want, PrefixDividedBy5(tt.array))
 	}
 }

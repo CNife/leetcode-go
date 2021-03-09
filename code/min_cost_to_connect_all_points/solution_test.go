@@ -1,6 +1,10 @@
 package min_cost_to_connect_all_points
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestMinCostConnectPoints(t *testing.T) {
 	tests := []struct {
@@ -29,10 +33,6 @@ func TestMinCostConnectPoints(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := MinCostConnectPoints(tt.points)
-		if got != tt.want {
-			t.Errorf("MinCostConnectPoints(%v) = %v, want %v",
-				tt.points, got, tt.want)
-		}
+		assert.Equal(t, tt.want, MinCostConnectPoints(tt.points))
 	}
 }

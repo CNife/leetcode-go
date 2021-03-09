@@ -1,6 +1,10 @@
 package permutation_in_string
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestCheckInclusion(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
@@ -8,15 +12,28 @@ func TestCheckInclusion(t *testing.T) {
 		p, s string
 		want bool
 	}{
-		{p: "adc", s: "dcda", want: true},
-		{p: "ab", s: "eidbaooo", want: true},
-		{p: "ab", s: "eidboaoo", want: false},
-		{p: "ab", s: "a", want: false},
+		{
+			p:    "adc",
+			s:    "dcda",
+			want: true,
+		},
+		{
+			p:    "ab",
+			s:    "eidbaooo",
+			want: true,
+		},
+		{
+			p:    "ab",
+			s:    "eidboaoo",
+			want: false,
+		},
+		{
+			p:    "ab",
+			s:    "a",
+			want: false,
+		},
 	}
 	for _, tt := range tests {
-		if got := CheckInclusion(tt.p, tt.s); got != tt.want {
-			t.Errorf("CheckInclusion(%v, %v) = %v, want %v",
-				tt.p, tt.s, got, tt.want)
-		}
+		assert.Equal(t, tt.want, CheckInclusion(tt.p, tt.s))
 	}
 }

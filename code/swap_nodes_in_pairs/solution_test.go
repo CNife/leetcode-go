@@ -3,20 +3,28 @@ package swap_nodes_in_pairs
 import (
 	"testing"
 
-	. "github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSwapPairs(t *testing.T) {
 	tests := []struct {
-		head, want *ListNode
+		head, want *types.ListNode
 	}{
-		{NewList(1, 2, 3, 4), NewList(2, 1, 4, 3)},
-		{NewList(), NewList()},
-		{NewList(1), NewList(1)},
+		{
+			head: types.NewList(1, 2, 3, 4),
+			want: types.NewList(2, 1, 4, 3),
+		},
+		{
+			head: types.NewList(),
+			want: types.NewList(),
+		},
+		{
+			head: types.NewList(1),
+			want: types.NewList(1),
+		},
 	}
 	for _, tt := range tests {
-		if got := SwapPairs(tt.head); got.String() != tt.want.String() {
-			t.Errorf("SwapPairs(%v) = %v, want %v", tt.head, got, tt.want)
-		}
+		assert.Equal(t, tt.want, SwapPairs(tt.head))
 	}
 }

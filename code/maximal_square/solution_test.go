@@ -1,6 +1,10 @@
 package maximal_square
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestMaximalSquare(t *testing.T) {
 	tests := []struct {
@@ -43,22 +47,26 @@ func TestMaximalSquare(t *testing.T) {
 			want: 1,
 		},
 		{
-			matrix: [][]byte{{'0'}},
-			want:   0,
+			matrix: [][]byte{
+				{'0'},
+			},
+			want: 0,
 		},
 		{
-			matrix: [][]byte{{'1'}},
-			want:   1,
+			matrix: [][]byte{
+				{'1'},
+			},
+			want: 1,
 		},
 		{
-			matrix: [][]byte{{'0', '0'}, {'0', '0'}},
-			want:   0,
+			matrix: [][]byte{
+				{'0', '0'},
+				{'0', '0'},
+			},
+			want: 0,
 		},
 	}
 	for _, tt := range tests {
-		if got := MaximalSquare(tt.matrix); got != tt.want {
-			t.Errorf("MaximalSquare(%v) = %v, want %v",
-				tt.matrix, got, tt.want)
-		}
+		assert.Equal(t, tt.want, MaximalSquare(tt.matrix))
 	}
 }

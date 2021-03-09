@@ -1,6 +1,10 @@
 package similar_string_groups
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestNumSimilarGroups(t *testing.T) {
 	tests := []struct {
@@ -17,9 +21,6 @@ func TestNumSimilarGroups(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := NumSimilarGroups(tt.strs); got != tt.want {
-			t.Errorf("NumSimilarGroups(%v) = %v, want %v",
-				tt.strs, got, tt.want)
-		}
+		assert.Equal(t, tt.want, NumSimilarGroups(tt.strs))
 	}
 }

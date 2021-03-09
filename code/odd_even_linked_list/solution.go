@@ -1,6 +1,6 @@
 package odd_even_linked_list
 
-import "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode-go/types"
 
 func OddEvenList(head *types.ListNode) *types.ListNode {
 	if head == nil || head.Next == nil || head.Next.Next == nil {

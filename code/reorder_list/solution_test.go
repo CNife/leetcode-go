@@ -1,23 +1,27 @@
 package reorder_list
 
 import (
-	"reflect"
 	"testing"
 
-	. "github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestReorderList(t *testing.T) {
 	tests := []struct {
-		head, want *ListNode
+		head, want *types.ListNode
 	}{
-		{NewList(1, 2, 3, 4), NewList(1, 4, 2, 3)},
-		{NewList(1, 2, 3, 4, 5), NewList(1, 5, 2, 4, 3)},
+		{
+			head: types.NewList(1, 2, 3, 4),
+			want: types.NewList(1, 4, 2, 3),
+		},
+		{
+			head: types.NewList(1, 2, 3, 4, 5),
+			want: types.NewList(1, 5, 2, 4, 3),
+		},
 	}
 	for _, tt := range tests {
-		list := tt.head.Clone()
-		if ReorderList(list); !reflect.DeepEqual(list, tt.want) {
-			t.Errorf("Reorder(%v) = %v, want %v", tt.head, list, tt.want)
-		}
+		ReorderList(tt.head)
+		assert.Equal(t, tt.want, tt.head)
 	}
 }

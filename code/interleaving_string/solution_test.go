@@ -1,6 +1,10 @@
 package interleaving_string
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestIsInterleave(t *testing.T) {
 	//noinspection SpellCheckingInspection
@@ -8,14 +12,32 @@ func TestIsInterleave(t *testing.T) {
 		lhs, rhs, target string
 		want             bool
 	}{
-		{"aabcc", "dbbca", "aadbbcbcac", true},
-		{"aabcc", "dbbca", "aadbbbaccc", false},
-		{"a", "", "a", true},
-		{"a", "", "b", false},
+		{
+			lhs:    "aabcc",
+			rhs:    "dbbca",
+			target: "aadbbcbcac",
+			want:   true,
+		},
+		{
+			lhs:    "aabcc",
+			rhs:    "dbbca",
+			target: "aadbbbaccc",
+			want:   false,
+		},
+		{
+			lhs:    "a",
+			rhs:    "",
+			target: "a",
+			want:   true,
+		},
+		{
+			lhs:    "a",
+			rhs:    "",
+			target: "b",
+			want:   false,
+		},
 	}
 	for _, tt := range tests {
-		if got := IsInterleave(tt.lhs, tt.rhs, tt.target); got != tt.want {
-			t.Error(tt, got)
-		}
+		assert.Equal(t, tt.want, IsInterleave(tt.lhs, tt.rhs, tt.target))
 	}
 }

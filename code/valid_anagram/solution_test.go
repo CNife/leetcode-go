@@ -1,6 +1,10 @@
 package valid_anagram
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestIsAnagram(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
@@ -8,13 +12,18 @@ func TestIsAnagram(t *testing.T) {
 		s, t string
 		want bool
 	}{
-		{"anagram", "nagaram", true},
-		{"rat", "cat", false},
+		{
+			s:    "anagram",
+			t:    "nagaram",
+			want: true,
+		},
+		{
+			s:    "rat",
+			t:    "cat",
+			want: false,
+		},
 	}
 	for _, tt := range tests {
-		if got := IsAnagram(tt.s, tt.t); got != tt.want {
-			t.Errorf("IsAnagram(%v, %v) = %v, want %v",
-				tt.s, tt.t, got, tt.want)
-		}
+		assert.Equal(t, tt.want, IsAnagram(tt.s, tt.t))
 	}
 }

@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
 )
 
 type Codec struct {
@@ -14,7 +14,7 @@ func Constructor() Codec {
 	return Codec{}
 }
 
-func (c *Codec) serialize(tree *types.TreeNode) string {
+func (c *Codec) Serialize(tree *types.TreeNode) string {
 	var result []string
 	queue := []*types.TreeNode{tree}
 	for len(queue) > 0 {
@@ -33,7 +33,7 @@ func (c *Codec) serialize(tree *types.TreeNode) string {
 	return strings.Join(result, ",")
 }
 
-func (c *Codec) deserialize(data string) *types.TreeNode {
+func (c *Codec) Deserialize(data string) *types.TreeNode {
 	nodes := strings.Split(data, ",")
 	if len(nodes[0]) == 0 {
 		return nil

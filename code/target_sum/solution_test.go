@@ -1,6 +1,10 @@
 package target_sum
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestFindTargetSumWays(t *testing.T) {
 	tests := []struct {
@@ -15,8 +19,6 @@ func TestFindTargetSumWays(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := FindTargetSumWays(tt.nums, tt.target); got != tt.want {
-			t.Error(tt, got)
-		}
+		assert.Equal(t, tt.want, FindTargetSumWays(tt.nums, tt.target))
 	}
 }

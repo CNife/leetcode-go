@@ -1,18 +1,26 @@
 package min_in_spiral_array
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestMinArray(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want int
 	}{
-		{[]int{3, 4, 5, 1, 2}, 1},
-		{[]int{2, 2, 2, 0, 1}, 0},
+		{
+			nums: []int{3, 4, 5, 1, 2},
+			want: 1,
+		},
+		{
+			nums: []int{2, 2, 2, 0, 1},
+			want: 0,
+		},
 	}
 	for _, tt := range tests {
-		if got := MinArray(tt.nums); got != tt.want {
-			t.Error(tt, got)
-		}
+		assert.Equal(t, tt.want, MinArray(tt.nums))
 	}
 }

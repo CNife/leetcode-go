@@ -1,8 +1,6 @@
 package sliding_window_median
 
-import (
-	"container/heap"
-)
+import "container/heap"
 
 func MedianSlidingWindow(nums []int, k int) []float64 {
 	big, small := &minHeap{}, &maxHeap{}

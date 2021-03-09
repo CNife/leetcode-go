@@ -1,9 +1,10 @@
 package sort_array_by_parity_2
 
 import (
-	"reflect"
-	"sort"
 	"testing"
+
+	"github.com/CNife/leetcode-go/util"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSortArrayByParity(t *testing.T) {
@@ -17,14 +18,6 @@ func TestSortArrayByParity(t *testing.T) {
 				t.Errorf("parity error at %v of %v", i, got)
 			}
 		}
-		if !reflect.DeepEqual(sortedArray(array), sortedArray(got)) {
-			t.Errorf("not same array, src %v, got %v", array, got)
-		}
+		assert.Equal(t, util.SortInts(array), util.SortInts(got))
 	}
-}
-
-func sortedArray(src []int) []int {
-	copied := append([]int{}, src...)
-	sort.Ints(copied)
-	return copied
 }

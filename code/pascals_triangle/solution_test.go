@@ -1,8 +1,9 @@
 package pascals_triangle
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGenerate(t *testing.T) {
@@ -22,8 +23,6 @@ func TestGenerate(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := Generate(tt.n); !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("Generate(%v) = %v, want %v", tt.n, got, tt.want)
-		}
+		assert.Equal(t, tt.want, Generate(tt.n))
 	}
 }

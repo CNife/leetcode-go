@@ -1,8 +1,9 @@
 package redundant_connection
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestFindRedundantConnection(t *testing.T) {
@@ -20,10 +21,6 @@ func TestFindRedundantConnection(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := FindRedundantConnection(tt.edges)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("FindRedundantConnection(%v) = %v, want %v",
-				tt.edges, got, tt.want)
-		}
+		assert.Equal(t, tt.want, FindRedundantConnection(tt.edges))
 	}
 }

@@ -1,27 +1,22 @@
 package short_encoding_of_words
 
-import "testing"
+import (
+	"testing"
 
-func Test_minimumLengthEncoding(t *testing.T) {
-	type args struct {
-		words []string
-	}
+	"github.com/stretchr/testify/assert"
+)
+
+func TestMinimumLengthEncoding(t *testing.T) {
 	tests := []struct {
-		name string
-		args args
-		want int
+		words []string
+		want  int
 	}{
 		{
-			name: "1",
-			args: args{[]string{"time", "me", "bell"}},
-			want: 10,
+			words: []string{"time", "me", "bell"},
+			want:  10,
 		},
 	}
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := MinimumLengthEncoding(tt.args.words); got != tt.want {
-				t.Errorf("minimumLengthEncoding() = %v, want %v", got, tt.want)
-			}
-		})
+		assert.Equal(t, tt.want, MinimumLengthEncoding(tt.words))
 	}
 }

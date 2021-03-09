@@ -1,6 +1,6 @@
 package unique_binary_search_trees_2
 
-import "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode-go/types"
 
 type pair struct {
 	start, end int

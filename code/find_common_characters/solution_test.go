@@ -1,8 +1,9 @@
 package find_common_characters
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCommonChars(t *testing.T) {
@@ -10,12 +11,16 @@ func TestCommonChars(t *testing.T) {
 		strings []string
 		want    []string
 	}{
-		{[]string{"bella", "label", "roller"}, []string{"e", "l", "l"}},
-		{[]string{"cool", "lock", "cook"}, []string{"c", "o"}},
+		{
+			strings: []string{"bella", "label", "roller"},
+			want:    []string{"e", "l", "l"},
+		},
+		{
+			strings: []string{"cool", "lock", "cook"},
+			want:    []string{"c", "o"},
+		},
 	}
 	for _, tt := range tests {
-		if got := CommonChars(tt.strings); !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("CommonChars(%v) = %v, want %v", tt.strings, got, tt.want)
-		}
+		assert.Equal(t, tt.want, CommonChars(tt.strings))
 	}
 }

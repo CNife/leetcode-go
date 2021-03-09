@@ -1,18 +1,26 @@
 package longest_mountain_in_array
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestLongestMountain(t *testing.T) {
 	tests := []struct {
 		array []int
 		want  int
 	}{
-		{[]int{2, 1, 4, 7, 3, 2, 5}, 5},
-		{[]int{2, 2, 2}, 0},
+		{
+			array: []int{2, 1, 4, 7, 3, 2, 5},
+			want:  5,
+		},
+		{
+			array: []int{2, 2, 2},
+			want:  0,
+		},
 	}
 	for _, tt := range tests {
-		if got := LongestMountain(tt.array); got != tt.want {
-			t.Errorf("LongestMountain(%v) = %v, want %v", tt.array, got, tt.want)
-		}
+		assert.Equal(t, tt.want, LongestMountain(tt.array))
 	}
 }

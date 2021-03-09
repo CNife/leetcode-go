@@ -1,8 +1,9 @@
 package find_first_and_last_position_of_element_in_sorted_array
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSearchRange(t *testing.T) {
@@ -11,15 +12,23 @@ func TestSearchRange(t *testing.T) {
 		target int
 		want   []int
 	}{
-		{[]int{5, 7, 7, 8, 8, 10}, 8, []int{3, 4}},
-		{[]int{5, 7, 7, 8, 8, 10}, 6, []int{-1, -1}},
-		{nil, 0, []int{-1, -1}},
+		{
+			nums:   []int{5, 7, 7, 8, 8, 10},
+			target: 8,
+			want:   []int{3, 4},
+		},
+		{
+			nums:   []int{5, 7, 7, 8, 8, 10},
+			target: 6,
+			want:   []int{-1, -1},
+		},
+		{
+			nums:   nil,
+			target: 0,
+			want:   []int{-1, -1},
+		},
 	}
 	for _, tt := range tests {
-		got := SearchRange(tt.nums, tt.target)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("SearchRange(%v, %v) = %v, want %v",
-				tt.nums, tt.target, got, tt.want)
-		}
+		assert.Equal(t, tt.want, SearchRange(tt.nums, tt.target))
 	}
 }

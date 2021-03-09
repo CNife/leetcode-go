@@ -1,6 +1,10 @@
 package find_the_difference
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestFindTheDifference(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
@@ -8,15 +12,28 @@ func TestFindTheDifference(t *testing.T) {
 		s, t string
 		want byte
 	}{
-		{"abcd", "abcde", 'e'},
-		{"", "y", 'y'},
-		{"a", "aa", 'a'},
-		{"ae", "aea", 'a'},
+		{
+			s:    "abcd",
+			t:    "abcde",
+			want: 'e',
+		},
+		{
+			s:    "",
+			t:    "y",
+			want: 'y',
+		},
+		{
+			s:    "a",
+			t:    "aa",
+			want: 'a',
+		},
+		{
+			s:    "ae",
+			t:    "aea",
+			want: 'a',
+		},
 	}
 	for _, tt := range tests {
-		if got := FindTheDifference(tt.s, tt.t); got != tt.want {
-			t.Errorf("FindTheDifference(%v, %v) = %c, want %c",
-				tt.s, tt.t, got, tt.want)
-		}
+		assert.Equal(t, tt.want, FindTheDifference(tt.s, tt.t))
 	}
 }

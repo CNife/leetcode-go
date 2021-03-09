@@ -1,6 +1,6 @@
 package partition_list
 
-import "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode-go/types"
 
 func Partition(head *types.ListNode, x int) *types.ListNode {
 	if head == nil || head.Next == nil {

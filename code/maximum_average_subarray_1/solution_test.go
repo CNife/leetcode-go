@@ -1,6 +1,10 @@
 package maximum_average_subarray_1
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestFindMaxAverage(t *testing.T) {
 	tests := []struct {
@@ -8,13 +12,13 @@ func TestFindMaxAverage(t *testing.T) {
 		k    int
 		want float64
 	}{
-		{[]int{1, 12, -5, -6, 50, 3}, 4, 12.75},
+		{
+			nums: []int{1, 12, -5, -6, 50, 3},
+			k:    4,
+			want: 12.75,
+		},
 	}
 	for _, tt := range tests {
-		got := FindMaxAverage(tt.nums, tt.k)
-		if got-tt.want >= 1e-5 || tt.want-got >= 1e-5 {
-			t.Errorf("FindMaxAverage(%v, %v) = %v, want %v",
-				tt.nums, tt.k, got, tt.want)
-		}
+		assert.Equal(t, tt.want, FindMaxAverage(tt.nums, tt.k))
 	}
 }

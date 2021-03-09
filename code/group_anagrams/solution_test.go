@@ -1,9 +1,10 @@
 package group_anagrams
 
 import (
-	"reflect"
-	"sort"
 	"testing"
+
+	"github.com/CNife/leetcode-go/util"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGroupAnagrams(t *testing.T) {
@@ -21,29 +22,8 @@ func TestGroupAnagrams(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := GroupAnagrams(tt.strings)
-		got, want := sortStringSlices(got), sortStringSlices(tt.want)
-		if !reflect.DeepEqual(got, want) {
-			t.Errorf("GroupAnagrams(%v) = %v, want %v", tt.strings, got, want)
-		}
+		assert.Equal(t,
+			util.SortStringSlicesDeep(tt.want, util.SortStrings),
+			util.SortStringSlicesDeep(GroupAnagrams(tt.strings), util.SortStrings))
 	}
-}
-
-func sortStringSlices(src [][]string) [][]string {
-	for _, slice := range src {
-		sort.Strings(slice)
-	}
-	sort.Slice(src, func(i, j int) bool {
-		m, n := 0, 0
-		for m < len(src[i]) && n < len(src[j]) {
-			lhs, rhs := src[i][m], src[j][n]
-			if lhs != rhs {
-				return lhs < rhs
-			}
-			m++
-			n++
-		}
-		return m == len(src[i]) && n < len(src[j])
-	})
-	return src
 }

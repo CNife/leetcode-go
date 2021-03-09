@@ -1,20 +1,37 @@
 package count_primes
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestCountPrimes(t *testing.T) {
 	tests := []struct {
 		n, want int
 	}{
-		{0, 0},
-		{1, 0},
-		{2, 0},
-		{3, 1},
-		{10, 4},
+		{
+			n:    0,
+			want: 0,
+		},
+		{
+			n:    1,
+			want: 0,
+		},
+		{
+			n:    2,
+			want: 0,
+		},
+		{
+			n:    3,
+			want: 1,
+		},
+		{
+			n:    10,
+			want: 4,
+		},
 	}
 	for _, tt := range tests {
-		if got := CountPrimes(tt.n); got != tt.want {
-			t.Errorf("CountPrimes(%v) = %v, want %v", tt.n, got, tt.want)
-		}
+		assert.Equal(t, tt.want, CountPrimes(tt.n))
 	}
 }

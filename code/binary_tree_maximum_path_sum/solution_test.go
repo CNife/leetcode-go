@@ -3,48 +3,46 @@ package binary_tree_maximum_path_sum
 import (
 	"testing"
 
-	. "github.com/CNife/leetcode/go/types"
+	"github.com/CNife/leetcode-go/types"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMaxPathSum(t *testing.T) {
-	cases := []struct {
-		tree     *TreeNode
-		expected int
+	tests := []struct {
+		tree *types.TreeNode
+		want int
 	}{
 		{
-			tree: &TreeNode{
+			tree: &types.TreeNode{
 				Val:   1,
-				Left:  &TreeNode{Val: 2},
-				Right: &TreeNode{Val: 3},
+				Left:  &types.TreeNode{Val: 2},
+				Right: &types.TreeNode{Val: 3},
 			},
-			expected: 6,
+			want: 6,
 		},
 		{
-			tree: &TreeNode{
+			tree: &types.TreeNode{
 				Val:  -10,
-				Left: &TreeNode{Val: 9},
-				Right: &TreeNode{
+				Left: &types.TreeNode{Val: 9},
+				Right: &types.TreeNode{
 					Val: 20,
-					Left: &TreeNode{
+					Left: &types.TreeNode{
 						Val: 15,
 					},
-					Right: &TreeNode{
+					Right: &types.TreeNode{
 						Val: 7,
 					},
 				},
 			},
-			expected: 42,
+			want: 42,
 		},
 		{
-			tree:     &TreeNode{Val: -3},
-			expected: -3,
+			tree: &types.TreeNode{Val: -3},
+			want: -3,
 		},
 	}
 
-	for _, tc := range cases {
-		if output := MaxPathSum(tc.tree); output != tc.expected {
-			t.Errorf("%v\noutput: %v\nexpected: %v", tc.tree, output, tc.expected)
-			t.Fail()
-		}
+	for _, tt := range tests {
+		assert.Equal(t, tt.want, MaxPathSum(tt.tree))
 	}
 }

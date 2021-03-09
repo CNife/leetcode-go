@@ -1,6 +1,6 @@
 package count_complete_tree_nodes
 
-import "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode-go/types"
 
 func CountNodes(root *types.TreeNode) int {
 	if root == nil {

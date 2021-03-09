@@ -2,7 +2,7 @@ package find_common_characters
 
 const tableSize = 26
 
-type table = [tableSize]uint
+type table [tableSize]uint
 
 func CommonChars(strings []string) []string {
 	if len(strings) == 0 {

@@ -1,8 +1,9 @@
 package create_maximum_number
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMaxNumber(t *testing.T) {
@@ -31,10 +32,6 @@ func TestMaxNumber(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := MaxNumber(tt.nums1, tt.nums2, tt.k)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("MaxNumber(%v, %v, %v) = %v, want %v",
-				tt.nums1, tt.nums2, tt.k, got, tt.want)
-		}
+		assert.Equal(t, tt.want, MaxNumber(tt.nums1, tt.nums2, tt.k))
 	}
 }

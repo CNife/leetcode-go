@@ -1,6 +1,10 @@
 package longest_turbulent_subarray
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestMaxTurbulenceSize(t *testing.T) {
 	tests := []struct {
@@ -21,10 +25,6 @@ func TestMaxTurbulenceSize(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := MaxTurbulenceSize(tt.nums)
-		if got != tt.want {
-			t.Errorf("MaxTurbulenceSize(%v) = %v, want %v",
-				tt.nums, got, tt.want)
-		}
+		assert.Equal(t, tt.want, MaxTurbulenceSize(tt.nums))
 	}
 }

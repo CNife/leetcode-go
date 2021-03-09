@@ -1,6 +1,10 @@
 package path_with_minimum_effort
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestMinimumEffortPath(t *testing.T) {
 	tests := []struct {
@@ -39,9 +43,6 @@ func TestMinimumEffortPath(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := MinimumEffortPath(tt.heights); got != tt.want {
-			t.Errorf("MinimumEffortPath(%v) = %v, want %v",
-				tt.heights, got, tt.want)
-		}
+		assert.Equal(t, tt.want, MinimumEffortPath(tt.heights))
 	}
 }

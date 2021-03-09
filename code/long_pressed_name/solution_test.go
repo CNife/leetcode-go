@@ -1,6 +1,10 @@
 package long_pressed_name
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestIsLongPressedName(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
@@ -8,15 +12,33 @@ func TestIsLongPressedName(t *testing.T) {
 		name, typed string
 		want        bool
 	}{
-		{"alex", "aaleex", true},
-		{"saeed", "ssaaedd", false},
-		{"leelee", "lleeelee", true},
-		{"laiden", "laiden", true},
-		{"vtkgn", "vttkgnn", true},
+		{
+			name:  "alex",
+			typed: "aaleex",
+			want:  true,
+		},
+		{
+			name:  "saeed",
+			typed: "ssaaedd",
+			want:  false,
+		},
+		{
+			name:  "leelee",
+			typed: "lleeelee",
+			want:  true,
+		},
+		{
+			name:  "laiden",
+			typed: "laiden",
+			want:  true,
+		},
+		{
+			name:  "vtkgn",
+			typed: "vttkgnn",
+			want:  true,
+		},
 	}
 	for _, tt := range tests {
-		if got := IsLongPressedName(tt.name, tt.typed); got != tt.want {
-			t.Errorf("IsLongPressedName(%v, %v) = %v, want %v", tt.name, tt.typed, got, tt.want)
-		}
+		assert.Equal(t, tt.want, IsLongPressedName(tt.name, tt.typed))
 	}
 }

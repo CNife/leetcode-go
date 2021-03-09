@@ -1,6 +1,10 @@
 package minimum_path_sum
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestMinPathSum(t *testing.T) {
 	tests := []struct {
@@ -24,8 +28,6 @@ func TestMinPathSum(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := MinPathSum(tt.grid); got != tt.want {
-			t.Error(tt, got)
-		}
+		assert.Equal(t, tt.want, MinPathSum(tt.grid))
 	}
 }

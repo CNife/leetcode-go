@@ -1,6 +1,10 @@
 package longest_increasing_path_in_a_matrix
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestLongestIncreasingPath(t *testing.T) {
 	tests := []struct {
@@ -25,8 +29,6 @@ func TestLongestIncreasingPath(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := LongestIncreasingPath(tt.matrix); got != tt.want {
-			t.Error(tt, got)
-		}
+		assert.Equal(t, tt.want, LongestIncreasingPath(tt.matrix))
 	}
 }

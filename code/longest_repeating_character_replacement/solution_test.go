@@ -1,6 +1,10 @@
 package longest_repeating_character_replacement
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestCharacterReplacement(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
@@ -20,9 +24,6 @@ func TestCharacterReplacement(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := CharacterReplacement(tt.s, tt.k); got != tt.want {
-			t.Errorf("CharacterReplacement(%v, %v) = %v, want %v",
-				tt.s, tt.k, got, tt.want)
-		}
+		assert.Equal(t, tt.want, CharacterReplacement(tt.s, tt.k))
 	}
 }

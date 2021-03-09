@@ -4,7 +4,7 @@ import (
 	"strings"
 )
 
-func mostCommonWord(paragraph string, banned []string) string {
+func MostCommonWord(paragraph string, banned []string) string {
 	words := make(map[string]int)
 	var builder strings.Builder
 	for i := 0; i < len(paragraph); i++ {

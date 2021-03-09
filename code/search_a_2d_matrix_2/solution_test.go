@@ -1,6 +1,10 @@
 package search_a_2d_matrix_2
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestSearchMatrix(t *testing.T) {
 	tests := []struct {
@@ -32,8 +36,6 @@ func TestSearchMatrix(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := SearchMatrix(tt.matrix, tt.target); got != tt.want {
-			t.Error(tt, got)
-		}
+		assert.Equal(t, tt.want, SearchMatrix(tt.matrix, tt.target))
 	}
 }

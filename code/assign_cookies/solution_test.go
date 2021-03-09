@@ -1,6 +1,10 @@
 package assign_cookies
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestFindContentChildren(t *testing.T) {
 	tests := []struct {
@@ -19,9 +23,6 @@ func TestFindContentChildren(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := FindContentChildren(tt.g, tt.s); got != tt.want {
-			t.Errorf("FindContentChildren(%v, %v) = %v, want %v",
-				tt.g, tt.s, got, tt.want)
-		}
+		assert.Equal(t, tt.want, FindContentChildren(tt.g, tt.s))
 	}
 }

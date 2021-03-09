@@ -1,6 +1,10 @@
 package four_sum_2
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestFourSumCount(t *testing.T) {
 	tests := []struct {
@@ -16,9 +20,6 @@ func TestFourSumCount(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := FourSumCount(tt.a, tt.b, tt.c, tt.d); got != tt.want {
-			t.Errorf("FourSumCount(%v, %v, %v, %v) = %v, want %v",
-				tt.a, tt.b, tt.c, tt.d, got, tt.want)
-		}
+		assert.Equal(t, tt.want, FourSumCount(tt.a, tt.b, tt.c, tt.d))
 	}
 }

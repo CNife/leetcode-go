@@ -1,6 +1,6 @@
 package reorder_list
 
-import "github.com/CNife/leetcode/go/types"
+import "github.com/CNife/leetcode-go/types"
 
 func ReorderList(head *types.ListNode) {
 	if head != nil {

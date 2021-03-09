@@ -1,6 +1,10 @@
 package word_ladder
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestLadderLength(t *testing.T) {
 	tests := []struct {
@@ -22,8 +26,7 @@ func TestLadderLength(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := LadderLength(tt.beginWord, tt.endWord, tt.wordList); got != tt.want {
-			t.Errorf("LadderLength(%v, %v, %v) = %v, want %v", tt.beginWord, tt.endWord, tt.wordList, got, tt.want)
-		}
+		assert.Equal(t, tt.want,
+			LadderLength(tt.beginWord, tt.endWord, tt.wordList))
 	}
 }

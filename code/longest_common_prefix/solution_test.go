@@ -1,43 +1,35 @@
 package longest_common_prefix
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 //noinspection SpellCheckingInspection
-func Test_longestCommonPrefix(t *testing.T) {
-	type args struct {
-		strings []string
-	}
+func TestLongestCommonPrefix(t *testing.T) {
 	tests := []struct {
-		name string
-		args args
-		want string
+		strings []string
+		want    string
 	}{
 		{
-			name: "empty args",
-			args: args{},
-			want: "",
+			strings: nil,
+			want:    "",
 		},
 		{
-			name: "has common prefix",
-			args: args{[]string{"flower", "flow", "flight"}},
-			want: "fl",
+			strings: []string{"flower", "flow", "flight"},
+			want:    "fl",
 		},
 		{
-			name: "no common prefix",
-			args: args{[]string{"dog", "racecar", "car"}},
-			want: "",
+			strings: []string{"dog", "racecar", "car"},
+			want:    "",
 		},
 		{
-			name: "sub slice",
-			args: args{[]string{"aa", "a"}},
-			want: "a",
+			strings: []string{"aa", "a"},
+			want:    "a",
 		},
 	}
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := longestCommonPrefix(tt.args.strings); got != tt.want {
-				t.Errorf("longestCommonPrefix(%v) = %v, want %v", tt.args, got, tt.want)
-			}
-		})
+		assert.Equal(t, tt.want, LongestCommonPrefix(tt.strings))
 	}
 }

@@ -1,6 +1,10 @@
 package non_decreasing_array
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestCheckPossibility(t *testing.T) {
 	tests := []struct {
@@ -21,9 +25,6 @@ func TestCheckPossibility(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := CheckPossibility(tt.nums); got != tt.want {
-			t.Errorf("CheckPossibility(%v) = %v, want %v",
-				tt.nums, got, tt.want)
-		}
+		assert.Equal(t, tt.want, CheckPossibility(tt.nums))
 	}
 }

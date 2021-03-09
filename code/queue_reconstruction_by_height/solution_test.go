@@ -1,8 +1,9 @@
 package queue_reconstruction_by_height
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestReconstructQueue(t *testing.T) {
@@ -15,8 +16,6 @@ func TestReconstructQueue(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		if got := ReconstructQueue(tt.people); !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("ReconstructQueue(%v) = %v, want %v", tt.people, got, tt.want)
-		}
+		assert.Equal(t, tt.want, ReconstructQueue(tt.people))
 	}
 }

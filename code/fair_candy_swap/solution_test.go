@@ -1,8 +1,9 @@
 package fair_candy_swap
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestFairCandySwap(t *testing.T) {
@@ -31,10 +32,6 @@ func TestFairCandySwap(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		got := FairCandySwap(tt.a, tt.b)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("FairCandySwap(%v, %v) = %v, want %v",
-				tt.a, tt.b, got, tt.want)
-		}
+		assert.Equal(t, tt.want, FairCandySwap(tt.a, tt.b))
 	}
 }

@@ -1,6 +1,10 @@
 package smallest_string_with_swaps
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestSmallestStringWithSwaps(t *testing.T) {
 	//goland:noinspection SpellCheckingInspection
@@ -9,15 +13,23 @@ func TestSmallestStringWithSwaps(t *testing.T) {
 		pairs [][]int
 		want  string
 	}{
-		{"dcab", [][]int{{0, 3}, {1, 2}}, "bacd"},
-		{"dcab", [][]int{{0, 3}, {1, 2}, {0, 2}}, "abcd"},
-		{"cba", [][]int{{0, 1}, {1, 2}}, "abc"},
+		{
+			s:     "dcab",
+			pairs: [][]int{{0, 3}, {1, 2}},
+			want:  "bacd",
+		},
+		{
+			s:     "dcab",
+			pairs: [][]int{{0, 3}, {1, 2}, {0, 2}},
+			want:  "abcd",
+		},
+		{
+			s:     "cba",
+			pairs: [][]int{{0, 1}, {1, 2}},
+			want:  "abc",
+		},
 	}
 	for _, tt := range tests {
-		got := SmallestStringWithSwaps(tt.s, tt.pairs)
-		if got != tt.want {
-			t.Errorf("SmallestStringWithSwaps(%v, %v) = %v, want %v",
-				tt.s, tt.pairs, got, tt.want)
-		}
+		assert.Equal(t, tt.want, SmallestStringWithSwaps(tt.s, tt.pairs))
 	}
 }

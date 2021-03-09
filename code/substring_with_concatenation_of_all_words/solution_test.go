@@ -1,9 +1,10 @@
 package substring_with_concatenation_of_all_words
 
 import (
-	"reflect"
-	"sort"
 	"testing"
+
+	"github.com/CNife/leetcode-go/util"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestFindSubstring(t *testing.T) {
@@ -13,16 +14,23 @@ func TestFindSubstring(t *testing.T) {
 		words []string
 		want  []int
 	}{
-		{"wordgoodgoodgoodbestword", []string{"word", "good", "best", "good"}, []int{8}},
-		{"barfoothefoobarman", []string{"foo", "bar"}, []int{0, 9}},
-		{"wordgoodgoodgoodbestword", []string{"word", "good", "best", "word"}, nil},
+		{
+			s:     "wordgoodgoodgoodbestword",
+			words: []string{"word", "good", "best", "good"},
+			want:  []int{8},
+		},
+		{
+			s:     "barfoothefoobarman",
+			words: []string{"foo", "bar"},
+			want:  []int{0, 9},
+		},
+		{
+			s:     "wordgoodgoodgoodbestword",
+			words: []string{"word", "good", "best", "word"},
+			want:  nil,
+		},
 	}
 	for _, tt := range tests {
-		got := FindSubstring(tt.s, tt.words)
-		sort.Ints(got)
-		sort.Ints(tt.want)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("FindSubstring(%v, %v) = %v, want %v", tt.s, tt.words, got, tt.want)
-		}
+		assert.Equal(t, util.SortInts(tt.want), FindSubstring(tt.s, tt.words))
 	}
 }

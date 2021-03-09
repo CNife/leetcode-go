@@ -1,8 +1,9 @@
 package positions_of_large_groups
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestLargeGroupPosition(t *testing.T) {
@@ -11,17 +12,28 @@ func TestLargeGroupPosition(t *testing.T) {
 		s    string
 		want [][]int
 	}{
-		{"abbxxxxzzy", [][]int{{3, 6}}},
-		{"abc", nil},
-		{"abcdddeeeeaabbbcd", [][]int{{3, 5}, {6, 9}, {12, 14}}},
-		{"aba", nil},
-		{"aaa", [][]int{{0, 2}}},
+		{
+			s:    "abbxxxxzzy",
+			want: [][]int{{3, 6}},
+		},
+		{
+			s:    "abc",
+			want: nil,
+		},
+		{
+			s:    "abcdddeeeeaabbbcd",
+			want: [][]int{{3, 5}, {6, 9}, {12, 14}},
+		},
+		{
+			s:    "aba",
+			want: nil,
+		},
+		{
+			s:    "aaa",
+			want: [][]int{{0, 2}},
+		},
 	}
 	for _, tt := range tests {
-		got := LargeGroupPosition(tt.s)
-		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("LargeGroupPosition(%v) = %v, want %v",
-				tt.s, got, tt.want)
-		}
+		assert.Equal(t, tt.want, LargeGroupPosition(tt.s))
 	}
 }
