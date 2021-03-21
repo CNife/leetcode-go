@@ -1,4 +1,4 @@
-package util
+package sort
 
 import (
 	"testing"
@@ -14,7 +14,7 @@ func TestSortIntSlices(t *testing.T) {
 			{4, 2, 1, 5, 3},
 			{6, 1, 5, 3, 2},
 		},
-		SortIntSlices([][]int{
+		IntSlices([][]int{
 			{4, 2, 1, 5, 3},
 			{6, 1, 5, 3, 2},
 			{7, 8},
@@ -31,14 +31,14 @@ func TestSortIntSlicesDeep(t *testing.T) {
 			{1, 2, 3, 4, 5},
 			{1, 2, 3, 5, 6},
 		},
-		SortIntSlicesDeep(
+		IntSlicesDeep(
 			[][]int{
 				{4, 2, 1, 5, 3},
 				{6, 1, 5, 3, 2},
 				{7, 8},
 				nil,
 			},
-			SortInts,
+			Ints,
 		),
 	)
 }
@@ -49,7 +49,7 @@ func TestSortStringSlices(t *testing.T) {
 			nil,
 			{"bc", "ab", "ba", "b", "abc", "c", "a"},
 		},
-		SortStringSlices([][]string{
+		StringSlices([][]string{
 			{"bc", "ab", "ba", "b", "abc", "c", "a"},
 			nil,
 		}),
@@ -62,12 +62,12 @@ func TestSortStringSlicesDeep(t *testing.T) {
 			nil,
 			{"a", "ab", "abc", "b", "ba", "bc", "c"},
 		},
-		SortStringSlicesDeep(
+		StringSlicesDeep(
 			[][]string{
 				{"bc", "ab", "ba", "b", "abc", "c", "a"},
 				nil,
 			},
-			SortStrings,
+			Strings,
 		),
 	)
 }

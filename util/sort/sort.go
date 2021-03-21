@@ -1,24 +1,24 @@
-package util
+package sort
 
 import "sort"
 
-func SortInts(nums []int) []int {
+func Ints(nums []int) []int {
 	sort.Ints(nums)
 	return nums
 }
 
-func SortStrings(strs []string) []string {
+func Strings(strs []string) []string {
 	sort.Strings(strs)
 	return strs
 }
 
-func SortIntSlices(slices [][]int) [][]int {
-	return SortIntSlicesDeep(slices, func(from []int) []int {
+func IntSlices(slices [][]int) [][]int {
+	return IntSlicesDeep(slices, func(from []int) []int {
 		return from
 	})
 }
 
-func SortIntSlicesDeep(
+func IntSlicesDeep(
 	slices [][]int,
 	mapFunc func(from []int) []int,
 ) [][]int {
@@ -42,13 +42,13 @@ func SortIntSlicesDeep(
 	return slices
 }
 
-func SortStringSlices(slices [][]string) [][]string {
-	return SortStringSlicesDeep(slices, func(from []string) []string {
+func StringSlices(slices [][]string) [][]string {
+	return StringSlicesDeep(slices, func(from []string) []string {
 		return from
 	})
 }
 
-func SortStringSlicesDeep(
+func StringSlicesDeep(
 	slices [][]string,
 	mapFunc func(from []string) []string,
 ) [][]string {
