@@ -3,7 +3,7 @@ package k_closest_points_to_origin
 import (
 	"testing"
 
-	"github.com/CNife/leetcode-go/util"
+	"github.com/CNife/leetcode-go/util/sort"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -25,7 +25,7 @@ func TestKClosest(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		assert.Equal(t, util.SortIntSlices(tt.want),
-			util.SortIntSlices(KClosest(tt.points, tt.k)))
+		assert.Equal(t, sort.IntSlices(tt.want),
+			sort.IntSlices(KClosest(tt.points, tt.k)))
 	}
 }

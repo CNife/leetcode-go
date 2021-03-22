@@ -3,7 +3,7 @@ package group_anagrams
 import (
 	"testing"
 
-	"github.com/CNife/leetcode-go/util"
+	"github.com/CNife/leetcode-go/util/sort"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -23,7 +23,7 @@ func TestGroupAnagrams(t *testing.T) {
 	}
 	for _, tt := range tests {
 		assert.Equal(t,
-			util.SortStringSlicesDeep(tt.want, util.SortStrings),
-			util.SortStringSlicesDeep(GroupAnagrams(tt.strings), util.SortStrings))
+			sort.StringSlicesDeep(tt.want, sort.Strings),
+			sort.StringSlicesDeep(GroupAnagrams(tt.strings), sort.Strings))
 	}
 }

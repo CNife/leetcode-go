@@ -3,7 +3,7 @@ package word_break_2
 import (
 	"testing"
 
-	"github.com/CNife/leetcode-go/util"
+	"github.com/CNife/leetcode-go/util/sort"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -41,7 +41,7 @@ func TestWordBreak(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		assert.Equal(t, util.SortStrings(tt.want),
-			util.SortStrings(WordBreak(tt.s, tt.words)))
+		assert.Equal(t, sort.Strings(tt.want),
+			sort.Strings(WordBreak(tt.s, tt.words)))
 	}
 }

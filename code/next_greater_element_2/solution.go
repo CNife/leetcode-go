@@ -1,5 +1,6 @@
 package next_greater_element_2
 
+//goland:noinspection GoNilness
 func NextGreaterElements(nums []int) []int {
 	n := len(nums)
 	result := make([]int, n)

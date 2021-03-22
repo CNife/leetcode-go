@@ -3,7 +3,7 @@ package palindrome_partitioning
 import (
 	"testing"
 
-	"github.com/CNife/leetcode-go/util"
+	"github.com/CNife/leetcode-go/util/sort"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -27,7 +27,7 @@ func TestPartition(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		assert.Equal(t, util.SortStringSlices(tt.want),
-			util.SortStringSlices(Partition(tt.s)))
+		assert.Equal(t, sort.StringSlices(tt.want),
+			sort.StringSlices(Partition(tt.s)))
 	}
 }

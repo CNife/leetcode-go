@@ -3,7 +3,7 @@ package sort_array_by_parity_2
 import (
 	"testing"
 
-	"github.com/CNife/leetcode-go/util"
+	"github.com/CNife/leetcode-go/util/sort"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -18,6 +18,6 @@ func TestSortArrayByParity(t *testing.T) {
 				t.Errorf("parity error at %v of %v", i, got)
 			}
 		}
-		assert.Equal(t, util.SortInts(array), util.SortInts(got))
+		assert.Equal(t, sort.Ints(array), sort.Ints(got))
 	}
 }

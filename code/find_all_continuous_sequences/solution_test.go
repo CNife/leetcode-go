@@ -3,7 +3,7 @@ package find_all_continuous_sequences
 import (
 	"testing"
 
-	"github.com/CNife/leetcode-go/util"
+	"github.com/CNife/leetcode-go/util/sort"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -29,7 +29,7 @@ func TestFindContinuousSequence(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		assert.Equal(t, util.SortIntSlices(tt.want),
-			util.SortIntSlices(FindContinuousSequence(tt.target)))
+		assert.Equal(t, sort.IntSlices(tt.want),
+			sort.IntSlices(FindContinuousSequence(tt.target)))
 	}
 }

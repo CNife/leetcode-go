@@ -3,7 +3,7 @@ package substring_with_concatenation_of_all_words
 import (
 	"testing"
 
-	"github.com/CNife/leetcode-go/util"
+	"github.com/CNife/leetcode-go/util/sort"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -31,6 +31,6 @@ func TestFindSubstring(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		assert.Equal(t, util.SortInts(tt.want), FindSubstring(tt.s, tt.words))
+		assert.Equal(t, sort.Ints(tt.want), FindSubstring(tt.s, tt.words))
 	}
 }

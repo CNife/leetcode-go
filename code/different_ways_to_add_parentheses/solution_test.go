@@ -3,7 +3,7 @@ package different_ways_to_add_parentheses
 import (
 	"testing"
 
-	"github.com/CNife/leetcode-go/util"
+	"github.com/CNife/leetcode-go/util/sort"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -26,7 +26,7 @@ func TestDiffWaysToCompute(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		assert.Equal(t, util.SortInts(tt.want),
-			util.SortInts(DiffWaysToCompute(tt.input)))
+		assert.Equal(t, sort.Ints(tt.want),
+			sort.Ints(DiffWaysToCompute(tt.input)))
 	}
 }

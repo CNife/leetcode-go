@@ -3,7 +3,7 @@ package intersection_of_two_arrays
 import (
 	"testing"
 
-	"github.com/CNife/leetcode-go/util"
+	"github.com/CNife/leetcode-go/util/sort"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -23,7 +23,7 @@ func TestIntersection(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		assert.Equal(t, util.SortInts(tt.want),
-			util.SortInts(Intersection(tt.arr1, tt.arr2)))
+		assert.Equal(t, sort.Ints(tt.want),
+			sort.Ints(Intersection(tt.arr1, tt.arr2)))
 	}
 }
