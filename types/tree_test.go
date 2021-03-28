@@ -35,3 +35,8 @@ func TestTreeNode_Clone(t *testing.T) {
 	assert.Equal(t, NewTree(1), NewTree(1))
 	assert.Equal(t, NewTree(1, 2, 3, -1, 4, 5), NewTree(1, 2, 3, -1, 4, 5))
 }
+
+func TestTreeNode_Len(t *testing.T) {
+	assert.Equal(t, 0, NewTree().Len())
+	assert.Equal(t, 5, NewTree(1, 2, 3, -1, 4, 5).Len())
+}

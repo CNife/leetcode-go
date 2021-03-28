@@ -63,3 +63,10 @@ func (tree *TreeNode) Clone() *TreeNode {
 		Right: tree.Right.Clone(),
 	}
 }
+
+func (tree *TreeNode) Len() int {
+	if tree == nil {
+		return 0
+	}
+	return 1 + tree.Left.Len() + tree.Right.Len()
+}
