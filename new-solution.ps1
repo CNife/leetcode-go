@@ -16,5 +16,5 @@ New-Item $SolutionDir -ItemType Directory -ErrorAction Ignore
 $SolutionSrc = "$SolutionDir\solution.go"
 $SolutionTest = "$SolutionDir\solution_test.go"
 Write-Output "package $Title`n" | Tee-Object $SolutionSrc | Out-File $SolutionTest
-goland $PSScriptRoot $SolutionSrc
 goland $PSScriptRoot $SolutionTest
+goland $PSScriptRoot $SolutionSrc
