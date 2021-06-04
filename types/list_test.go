@@ -56,3 +56,9 @@ func loopList() *ListNode {
 
 	return list
 }
+
+func TestListNode_Last(t *testing.T) {
+	assert.Equal(t, (*ListNode)(nil), NewList().Last())
+	assert.Equal(t, NewList(1), NewList(1).Last())
+	assert.Equal(t, NewList(5), NewList(1, 2, 3, 4, 5).Last())
+}

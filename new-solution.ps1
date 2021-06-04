@@ -11,7 +11,7 @@ $Title = $Title -replace '_iv$', '_4'
 $Title = $Title -replace '_v$', '_5'
 
 $SolutionDir = "$PSScriptRoot\code\$Title"
-New-Item $SolutionDir -ItemType Directory -ErrorAction Ignore
+New-Item $SolutionDir -ItemType Directory | Out-Null
 
 $SolutionSrc = "$SolutionDir\solution.go"
 $SolutionTest = "$SolutionDir\solution_test.go"

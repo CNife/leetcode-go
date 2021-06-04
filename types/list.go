@@ -5,16 +5,16 @@ import (
 	"strings"
 )
 
-// 单链表长度上限
+// SizeThreshold 单链表长度上限
 const SizeThreshold = 1000
 
-// 单链表节点
+// ListNode 单链表节点
 type ListNode struct {
 	Val  int
 	Next *ListNode
 }
 
-// 创建新的单链表
+// NewList 创建新的单链表
 func NewList(values ...int) *ListNode {
 	var head, prev *ListNode
 	for _, value := range values {
@@ -58,7 +58,7 @@ func (l *ListNode) String() string {
 	return buffer.String()
 }
 
-// 克隆单链表
+// Clone 克隆单链表
 // 如果链表有环，将引发错误
 func (l *ListNode) Clone() *ListNode {
 	if l == nil {
@@ -78,4 +78,17 @@ func (l *ListNode) Clone() *ListNode {
 		size++
 	}
 	return head
+}
+
+// Last 获得链表的最后一个节点
+func (l *ListNode) Last() *ListNode {
+	if l == nil {
+		return nil
+	}
+
+	//goland:noinspection GoAssignmentToReceiver
+	for l.Next != nil {
+		l = l.Next
+	}
+	return l
 }
