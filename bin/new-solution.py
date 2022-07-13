@@ -24,7 +24,7 @@ IDE_COMMANDS = {
 }
 
 
-def main(directory: Path, title: str, ide: IDE = typer.Option(...)):
+def main(directory: Path, title: str, ide: IDE):
     title = title.strip()
     title = title.replace("-", "_")
     for roma, india in COUNTS.items():
