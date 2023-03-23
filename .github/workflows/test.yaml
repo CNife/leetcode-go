@@ -1,0 +1,32 @@
+name: 测试题解
+
+on:
+  - push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 切换到推送分支
+        uses: actions/checkout@v3
+
+      - name: 设置Golang环境
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+          cache: true
+
+      - name: 运行测试
+        run: |
+          export GOPATH="$HOME/go"
+          export PATH="$PATH:$GOPATH/bin"
+          go install github.com/jstemmer/go-junit-report@latest
+          go test -v ./... | go-junit-report -set-exit-code > test-result.xml
+
+      - name: 生成测试结果报告
+        uses: test-summary/action@v2
+        if: always()
+        with:
+          paths: ./test-result.xml
+          show: all

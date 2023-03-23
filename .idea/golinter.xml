@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GoLinterSettings">
+    <option name="enabledLinters">
+      <list>
+        <option value="exportloopref" />
+        <option value="predeclared" />
+        <option value="noctx" />
+        <option value="gocritic" />
+        <option value="goconst" />
+        <option value="errcheck" />
+        <option value="sqlclosecheck" />
+        <option value="dogsled" />
+        <option value="nestif" />
+        <option value="ineffassign" />
+        <option value="unparam" />
+        <option value="goheader" />
+        <option value="nakedret" />
+        <option value="prealloc" />
+        <option value="durationcheck" />
+        <option value="staticcheck" />
+        <option value="dupl" />
+        <option value="govet" />
+        <option value="forbidigo" />
+        <option value="errorlint" />
+        <option value="misspell" />
+        <option value="typecheck" />
+        <option value="gochecknoinits" />
+        <option value="wrapcheck" />
+        <option value="rowserrcheck" />
+        <option value="lll" />
+        <option value="makezero" />
+        <option value="thelper" />
+        <option value="tparallel" />
+        <option value="nolintlint" />
+        <option value="goerr113" />
+        <option value="gomodguard" />
+        <option value="golint" />
+        <option value="godox" />
+        <option value="gofmt" />
+        <option value="unconvert" />
+        <option value="unused" />
+        <option value="whitespace" />
+        <option value="depguard" />
+        <option value="ifshort" />
+        <option value="goimports" />
+        <option value="goprintffuncname" />
+        <option value="gosimple" />
+        <option value="gocyclo" />
+      </list>
+    </option>
+    <option name="goLinterExe" value="C:\Scoop\apps\golangci-lint\current\golangci-lint.exe" />
+    <option name="linterSelected" value="true" />
+  </component>
+</project>
