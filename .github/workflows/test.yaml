@@ -19,8 +19,8 @@ jobs:
 
       - name: 运行测试
         run: |
-          export GOPATH="$HOME/go"
-          export PATH="$PATH:$GOPATH/bin"
+          gopath="$(go env GOPATH)"
+          export PATH="${PATH}:${gopath}/bin"
           go install github.com/jstemmer/go-junit-report@latest
           go test -v ./... | go-junit-report -set-exit-code > test-result.xml
 
